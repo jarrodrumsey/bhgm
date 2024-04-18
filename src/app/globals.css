@@ -30,6 +30,23 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+
+  @property --bg-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+  }
+
+  @keyframes spin {
+    to {
+      --bg-angle: 360deg;
+    }
+  }
+  
+  .animate-gr {
+    animation: spin 0.5s infinite linear infinite;
+  }
 }
 
 /* width */

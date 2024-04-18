@@ -3,7 +3,9 @@ import moment from 'moment'
 import React from 'react'
 import { ClockIcon } from '../time'
 import Image from 'next/image'
-
+import { ChevronDoubleRightIcon } from '../rightArrow'
+import { PlayIcon } from '../Play'
+import { LockIcon } from './lock'
 export type GameItem = {
     duration: number, 
     event: string, 
@@ -32,18 +34,23 @@ const GameCard = (props : GameCardProps) =>
       rounded-md 
       overflow-hidden           
       relative
-      ${ props.index !== props.activeIndex ? "" : "border-yellow-300 border-[3px]"}
+      group
+      ${ props.index !== props.activeIndex ? "" : ""}
       `
     } 
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-      <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120}
-      className='absolute object-cover h-full w-full '/>
-      <div className={`h-full w-full z-10 flex flex-row justify-between items-center 
-      ${ props.index !== props.activeIndex ? "backdrop-blur-[2px]" : ""} hover:backdrop-blur-0`}>
+        <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120}
+        className='absolute object-cover h-full w-full '/>
+        <div className={`transition ease-in-out absolute w-full h-full z-1 backdrop-blur-sm group-hover:backdrop-blur-none  ${props.index === props.activeIndex ? 'backdrop-blur-none' : ""}`}></div>
+      <div className={`h-full w-full z-10 flex flex-row justify-between items-centerbackdrop-blur-sm
+      ${ props.index !== props.activeIndex ? "bg-gradient-to-r from-cyan-500/70 to-blue-500/70" : ""}
+      ${ props.index === props.activeIndex ? "bg-gradient-to-r bg-stone-800/30" : ""}  
+      ${ props.index < props.activeIndex ? "grayscale-[0.7]" : ""} `}
+      >
         <div className=" flex flex-col items-start h-full w-fit justify-between text-nowrap p-4">
-          <p className="font-bold ">{props.event}</p>
+          <p className="font-bold">{props.event}</p>
           <p className="text-sm">{props.who}</p>
         </div>
         <div className="flex flex-col items-end h-full justify-between text-nowrap p-4">
@@ -84,20 +91,25 @@ const GameList = (props : {list:GameItem[], activeIndex: number}) => {
           props.list.map((item, index) => {
             return (
             <li 
-            className={`h-20 w-[30rem] rounded-md 
-            ${index <= props.activeIndex ? "drop-shadow-glow":""}
-            ${index < props.activeIndex ? "bg-sky-500 border-yellow-300 border-[3px]" : (index === props.activeIndex ? "bg-sky-500 scale-110" : "bg-sky-800")}
+            className={`h-20 w-[30rem] rounded-md relative flex items-center
+
+            ${index < props.activeIndex ? "bg-sky-500  " : (index === props.activeIndex ? "scale-110" : "")}
             ${index !== props.activeIndex ? getScale(index) : "" }
-            ${index === props.activeIndex ? "shadow-md" : ""}
-            hover:translate-x-5 transition-all cursor-pointer select-none`}  
+            transition-all cursor-pointer select-none`}  
             key={index}
             id={`game-item-${index}`}
             style={{
               opacity: index < props.activeIndex ? 
-              0.2 : 1,
+              1 : 1,
             }}
             >
+              {index === props.activeIndex ? <a className='absolute left-[-72px] animate-shifting'>
+                <ChevronDoubleRightIcon width={56} color='rgb(253 224 71)'/>
+              </a> : <></>}
               <GameCard {...item} index={index} activeIndex={props.activeIndex}/>
+              {index === props.activeIndex ? <a className='absolute right-[-72px] animate-pulse'>
+                <PlayIcon width={56} color='rgb(253 224 71)'/>
+              </a> : <></>}
             </li>)
             })
         }
