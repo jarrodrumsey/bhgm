@@ -4,16 +4,18 @@ import React from 'react'
 import { ClockIcon } from '../time'
 import Image from 'next/image'
 
-export interface GameItem {
+export type GameItem = {
     duration: number, 
     event: string, 
     console: string, 
     who: string, 
     time: string,
-    imageURL: string
+    imageURL: string,
 }
 
-const GameCard = (props : GameItem) =>
+type GameCardProps = GameItem & {index: number, activeIndex: number}
+
+const GameCard = (props : GameCardProps) =>
 {
   const backgroundImage = (imageURL : string) => {
     console.log("bg-[url(" + imageURL + ")]")
@@ -29,35 +31,36 @@ const GameCard = (props : GameItem) =>
       justify-between items-center 
       rounded-md 
       overflow-hidden           
-      relative`
+      relative
+      ${ props.index !== props.activeIndex ? "" : "border-yellow-300 border-[3px]"}
+      `
     } 
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
       <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120}
-      className='absolute object-cover h-full w-full'/>
-      <div className=" flex flex-col items-start h-full w-fit justify-between text-nowrap p-4 z-10">
-        <p className="font-bold ">{props.event}</p>
-        <p className="text-sm">{props.who}</p>
+      className='absolute object-cover h-full w-full '/>
+      <div className={`h-full w-full z-10 flex flex-row justify-between items-center 
+      ${ props.index !== props.activeIndex ? "backdrop-blur-[2px]" : ""} hover:backdrop-blur-0`}>
+        <div className=" flex flex-col items-start h-full w-fit justify-between text-nowrap p-4">
+          <p className="font-bold ">{props.event}</p>
+          <p className="text-sm">{props.who}</p>
+        </div>
+        <div className="flex flex-col items-end h-full justify-between text-nowrap p-4">
+          <p className="flex flex-row gap-1 items-center justify-end">
+            <span>{moment.utc(props.time).local().format('dddd')}</span>
+            <span>{moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')}</span>
+          </p>
+          <p className="flex flex-row gap-1 items-center justify-end text-sm">
+            {props.duration}H 
+            <ClockIcon width={20}></ClockIcon>
+          </p>
+        </div>
       </div>
-      <div className="flex flex-col items-end h-full justify-between text-nowrap p-4 z-10">
-        <p className="flex flex-row gap-1 items-center justify-end">
-          <span>{moment.utc(props.time).local().format('dddd')}</span>
-          <span>{moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')}</span>
-        </p>
-        <p className="flex flex-row gap-1 items-center justify-end text-sm">
-          {props.duration}H 
-          <ClockIcon width={20}></ClockIcon>
-        </p>
-      </div>
-
-
     </a>)
 }
 
 const GameList = (props : {list:GameItem[], activeIndex: number}) => {
-
-
 
     const getScale = (index:number) => {
     const dif = Math.abs(props.activeIndex - index);
@@ -82,9 +85,10 @@ const GameList = (props : {list:GameItem[], activeIndex: number}) => {
             return (
             <li 
             className={`h-20 w-[30rem] rounded-md 
-            ${index < props.activeIndex ? "bg-sky-500" : (index === props.activeIndex ? "bg-sky-500 scale-110" : "bg-sky-800")}
+            ${index <= props.activeIndex ? "drop-shadow-glow":""}
+            ${index < props.activeIndex ? "bg-sky-500 border-yellow-300 border-[3px]" : (index === props.activeIndex ? "bg-sky-500 scale-110" : "bg-sky-800")}
             ${index !== props.activeIndex ? getScale(index) : "" }
-
+            ${index === props.activeIndex ? "shadow-md" : ""}
             hover:translate-x-5 transition-all cursor-pointer select-none`}  
             key={index}
             id={`game-item-${index}`}
@@ -93,7 +97,7 @@ const GameList = (props : {list:GameItem[], activeIndex: number}) => {
               0.2 : 1,
             }}
             >
-              <GameCard {...item}/>
+              <GameCard {...item} index={index} activeIndex={props.activeIndex}/>
             </li>)
             })
         }
