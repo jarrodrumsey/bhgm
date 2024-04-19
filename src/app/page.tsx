@@ -3,14 +3,12 @@
 import Image from "next/image";
 import {Schedule} from "./data";
 import moment, { duration } from "moment";
-import { ClockIcon } from "./components/icons/time";
-import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, ReactNode, SetStateAction, useCallback, useEffect, useState } from "react";
 import GameList, { GameItem } from "./components/game-list";
 import ProgressBar from "./components/progress-bar";
-import { setTimeout } from "timers";
 import TwitchStream from "./components/twitch-stream";
 import { FlagIcon } from "./components/icons/Flag";
-import { XMarkIcon } from "./components/icons/XMark";
+import { XMarkIcon } from "./components/icons/xmark";
 
 const scrollToGame = (index:number) => {
   const element = document.getElementById(`game-item-${index}`);
@@ -36,15 +34,17 @@ const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>
   )
 }
 
+const Button = (props: {children:ReactNode}) => {
+  return (
+  <button className="p-4 w-full grid place-items-center">
+    {props.children}
+  </button>
+  )
+}
+
 const Sidebar = () => {
 
-  const Button = (props: {children:ReactNode}) => {
-    return (
-    <button className="p-4 w-full grid place-items-center">
-      {props.children}
-    </button>
-    )
-  }
+
 
   return (
     <div className="relative h-full w-full flex justify-center">
@@ -69,45 +69,62 @@ const Footer = () => {
 export default function Home() {
 
   let schedule : GameItem[] = JSON.parse(JSON.stringify(Schedule));
-  schedule.push({duration:0, imageURL:"/img/1-preshow.png", event:"", console:"", who:"", time:"9999-12-30T23:59:59.000Z"}) //Terminating item
+  const day = new Date("2024-05-07T10:45:00.000Z")
 
-  const [date, setDate] = useState(new Date())
+  const [tempDay, setTempDay] = useState(day)
 
   const getDeltaTime = (time : string, currentDate: Date) => { 
     return (currentDate.getTime() - new Date(time).getTime())
   }
 
-  //Get the first index which we haven't passed, one less than that is our active index.
-  const getActiveIndex = (schedule : GameItem[], currentDate: Date) => {
-    return schedule.findIndex(g => {return getDeltaTime(g?.time ? g?.time : ("9999-12-30T23:59:59.000Z"), currentDate) < 0 })-1
-  }
+  const [testDay, setTestDay] = useState(0);
 
-  const onloadIndex = getActiveIndex(schedule, date)
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const incrementDay = useCallback((schedule: GameItem[]) => {
+    const day = new Date(schedule[testDay]?.time);
+    if(testDay <= schedule.length)
+    {
+      setTestDay(i => (i+1))
+    }
+    
+    console.log(testDay)
+   
+    return day
+  }, [testDay, setTestDay])
+
+  //Get the first index which we haven't passed, one less than that is our active index.
+  const getActiveIndex = useCallback((schedule : GameItem[], currentDate: Date) => {
+
+    const index = schedule.findIndex(g => {
+      return getDeltaTime(g.time, currentDate) < 0 
+    })
+
+    return (index === -1) ? (schedule.length-1) : index - 1
+  }, [])
+
+  //getActiveIndex(schedule, day)
+  const [activeIndex, setActiveIndex] = useState(getActiveIndex(schedule, new Date()));
   const [showVideo, setShowVideo] = useState(activeIndex === schedule.length);
-  const [testDex, setTestDex] = useState(0)
- 
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date()
-
-      if(now.getTime() < new Date(schedule[activeIndex].time).getTime())
+      
+      const now = new Date(); //incrementDay(schedule)
+      const end = schedule[activeIndex] ? (new Date(schedule[activeIndex].time).getTime() + schedule[activeIndex].duration*1000*Math.pow(60,2)) : Infinity
+  
+      if(now.getTime() >= end && (activeIndex < schedule.length))
       {
-          setDate(new Date());
-          console.log(date.toISOString())
-          const oldIndex = activeIndex;
-          setActiveIndex(a => getActiveIndex(schedule, date))
+        setActiveIndex(a => a+1)
+        console.log(now.toISOString())
       }
-
-    }, 500);
+      console.log("RENDER")
+    }, 1000);
     return () => clearInterval(interval);
-  },[date, activeIndex]);
+  },[getActiveIndex, schedule, activeIndex, incrementDay, setActiveIndex]);
 
   useEffect(() => {
-    activeIndex === schedule.length ? setShowVideo(true) : null
+    activeIndex >= schedule.length ? setShowVideo(true) : null
     scrollToGame(activeIndex) 
-  }, [activeIndex])
+  }, [activeIndex, schedule.length])
 
   const incrementIndex = () =>{
     setActiveIndex(activeIndex+1)
@@ -120,7 +137,7 @@ export default function Home() {
 
       <div className="grid grid-cols-3 gap-4 place-items-center p-8">
         <Sidebar/>
-        <GameList list={schedule} activeIndex={activeIndex}/>
+        <GameList list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
       </div>
 
       { showVideo && <EventOverDialog setShowVideo={setShowVideo}/>}

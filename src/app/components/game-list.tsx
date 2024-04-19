@@ -104,10 +104,6 @@ const GameList = (props : {list:GameItem[], activeIndex: number}) => {
           props.list.map((item, index) => {
 
             const isLive = index === props.activeIndex;
-            if ( item.time === '9999-12-30T23:59:59.000Z')
-            {
-              return (<></>)
-            }
 
             return (
             <li 
