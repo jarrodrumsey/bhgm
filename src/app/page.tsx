@@ -142,7 +142,7 @@ export default function Home() {
 
       { showVideo && <EventOverDialog setShowVideo={setShowVideo}/>}
 
-      <div className="absolute h-full w-full">
+      <div className="absolute h-full self-start">
         <button className="sticky top-12 left-0 h-30 bg-green-400 p-3 rounded-md self-start m-4" onClick={() => {incrementIndex()}}>CLICK ME</button>
       </div>
 

@@ -31,10 +31,10 @@ const LiveButton = () =>
 const LiveContainer = (props : {isLive:boolean, children:ReactNode}) =>
 {
   return(
-    <div className={`w-full h-full rounded-md overflow-hidden flex flex-col`}>
+    <div className={`w-full h-full rounded-md overflow-hidden flex flex-col ${props.isLive ? "shadow-2xl" : ""}`}>
       {props.children}
       {props.isLive && 
-      <div className={`p-2 py-[0px] bg-red-500 text-sm`}>
+      <div className={`p-2 py-[0px] bg-red-500 text-sm `}>
         <div className='animate-slide'>
           <span className='animate-slide font-bold'>LIVE NOW</span>
         </div>
