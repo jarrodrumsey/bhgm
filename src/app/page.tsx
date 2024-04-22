@@ -69,9 +69,6 @@ const Footer = () => {
 export default function Home() {
 
   let schedule : GameItem[] = JSON.parse(JSON.stringify(Schedule));
-  const day = new Date("2024-05-07T10:45:00.000Z")
-
-  const [tempDay, setTempDay] = useState(day)
 
   const getDeltaTime = (time : string, currentDate: Date) => { 
     return (currentDate.getTime() - new Date(time).getTime())
@@ -101,7 +98,6 @@ export default function Home() {
     return (index === -1) ? (schedule.length-1) : index - 1
   }, [])
 
-  //getActiveIndex(schedule, day)
   const [activeIndex, setActiveIndex] = useState(getActiveIndex(schedule, new Date()));
   const [showVideo, setShowVideo] = useState(activeIndex === schedule.length);
 
@@ -116,8 +112,7 @@ export default function Home() {
         setActiveIndex(a => a+1)
         console.log(now.toISOString())
       }
-      console.log("RENDER")
-    }, 1000);
+    }, 10000);
     return () => clearInterval(interval);
   },[getActiveIndex, schedule, activeIndex, incrementDay, setActiveIndex]);
 
@@ -133,7 +128,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between  bg-sky-950/50 relative">
       
-      <ProgressBar value={activeIndex} max={schedule.length-2} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400"/>
+      <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400"/>
 
       <div className="grid grid-cols-3 gap-4 place-items-center p-8">
         <Sidebar/>
