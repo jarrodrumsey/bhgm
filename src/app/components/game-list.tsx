@@ -10,6 +10,7 @@ import { PlayIcon } from './icons/play'
 import { LockIcon } from './lock'
 import { DoneIcon } from './icons/done';
 import { TrophyIcon } from './icons/trophy';
+import { getSchedule } from '../utils/schedule.utils';
 export type GameItem = {
     duration: number, 
     event: string, 
@@ -91,14 +92,14 @@ const GameCard = (props : GameCardProps) =>
          ${ props.index === props.activeIndex ? "bg-stone-900/60" : "bg-gradient-to-b from-stone-900/90 to-stone-900/0 from-50% to-50%"}
   `}/>*/}
 
-        <h2 className={`flex justify-between px-4 transition-all text-sm font-bold z-[1] bg-gradient-to-b from-black/60 to-white/0 ${ props.index === props.activeIndex ? "pt-2" : "py-2"}`}>
+        <h2 className={`flex justify-between px-4 transition-all text-sm font-bold z-[1] bg-gradient-to-b from-black/60 to-white/0 ${ props.index === props.activeIndex ? "pt-1" : "py-1"}`}>
           <CardLabel className=' text-md items-start'>{props.event}</CardLabel>
           <CardLabel className={`flex flex-row gap-1 items-start justify-end `}>
             <TimeInfo time={props.time}/>
           </CardLabel>
         </h2>
 
-        <h3 className={`grid grid-cols-2 place-content-end px-4 h-full transition-all z-[1] text-sm font-semibold justify-self-end ${props.index === props.activeIndex ? "pb-2" : "py-2"}`}>
+        <h3 className={`grid grid-cols-2 place-content-end px-4 h-full transition-all z-[1] text-sm font-semibold justify-self-end ${props.index === props.activeIndex ? "pb-1" : "py-1"}`}>
           <CardLabel className='place-self-start'>{props.who}</CardLabel>
           <CardLabel className={`place-self-end flex flex-row gap-1 items-center justify-end text-sm`}>
             <span aria-label='hours'>{props.duration}H</span>
@@ -111,28 +112,7 @@ const GameCard = (props : GameCardProps) =>
 
 const GameList = (props : {list:GameItem[], activeIndex: number, className?:string}) => {
 
-  function getSchedule(list: GameItem[]) : {day:string, list:GameItem[]}[]
-  {
-    let map = new Map();
 
-    list.forEach((element) => {
-      const day = moment.utc(element.time).local().format('dddd')
-
-      if(map.has(day))
-        {
-          let new_array = map.get(day)
-          new_array.push(element)
-          map.set(day, new_array)
-        }
-        else
-        {
-          map.set(day, [element])
-        }
-    })
-    
-    const sorted_list : {day:string, list:GameItem[]}[] = Array.from(map, ([day, list]) => ({day, list}))
-    return sorted_list
-  }
 
   const [schedule] = useState(getSchedule(props.list))
   let index = -1
@@ -154,7 +134,7 @@ const GameList = (props : {list:GameItem[], activeIndex: number, className?:stri
                 
                 return (
                 <li 
-                className={`h-24 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden 
+                className={`h-16 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden 
                 ${index < props.activeIndex ? "" : (isLive ? "scale-110" : "")}`}  
                 key={index}
                 id={`game-item-${index}`}
