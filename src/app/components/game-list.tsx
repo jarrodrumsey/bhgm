@@ -83,8 +83,8 @@ const GameCard = (props : GameCardProps) =>
         
         <div className={`h-full w-full flex flex-col absolute left-0 top-0 transition-all
         ${ props.index < props.activeIndex ? "backdrop-blur-[1px]" : ""}
-        ${ props.index === props.activeIndex ? "bg-gradient-to-b from-black/90 to-white/0" : ""}  
-        ${ props.index > props.activeIndex ? "bg-stone-800/40" : ""}
+        ${ props.index === props.activeIndex ? "bg-gradient-to-b from-sky-200/40 to-white/0" : ""}  
+        ${ props.index > props.activeIndex ? "bg-stone-800/30" : ""}
         `}
         >
      
@@ -92,14 +92,14 @@ const GameCard = (props : GameCardProps) =>
          ${ props.index === props.activeIndex ? "bg-stone-900/60" : "bg-gradient-to-b from-stone-900/90 to-stone-900/0 from-50% to-50%"}
   `}/>*/}
 
-        <h2 className={`flex justify-between px-4 transition-all text-sm font-bold z-[1] bg-gradient-to-b from-black/60 to-white/0 ${ props.index === props.activeIndex ? "pt-1" : "py-1"}`}>
+        <h2 className={`flex justify-between px-4 transition-all text-sm font-bold z-[1] bg-gradient-to-b from-black/90 to-white/0 ${ props.index === props.activeIndex ? "pt-2" : "py-2"}`}>
           <CardLabel className=' text-md items-start'>{props.event}</CardLabel>
           <CardLabel className={`flex flex-row gap-1 items-start justify-end `}>
             <TimeInfo time={props.time}/>
           </CardLabel>
         </h2>
 
-        <h3 className={`grid grid-cols-2 place-content-end px-4 h-full transition-all z-[1] text-sm font-semibold justify-self-end ${props.index === props.activeIndex ? "pb-1" : "py-1"}`}>
+        <h3 className={`grid grid-cols-2 place-content-end px-4 h-full transition-all z-[1] text-sm font-semibold justify-self-end ${props.index === props.activeIndex ? "pb-2" : "py-2"}`}>
           <CardLabel className='place-self-start'>{props.who}</CardLabel>
           <CardLabel className={`place-self-end flex flex-row gap-1 items-center justify-end text-sm`}>
             <span aria-label='hours'>{props.duration}H</span>
@@ -118,7 +118,7 @@ const GameList = (props : {list:GameItem[], activeIndex: number, className?:stri
   let index = -1
   
   return (
-    <div className='flex flex-col'>{
+    <div className='grid h-full'>{
       schedule.map((group: {day:string, list:GameItem[]}, day_number:number) => { 
         return(<div key={day_number} id={`day-${day_number}`} className='flex flex-row-reverse gap-3 p-3 border-b-[1px] border-sky-900' >
           <h2 className='[writing-mode:vertical-lr] p-2 flex justify-between border-l-[1px] border-sky-900'>
@@ -134,8 +134,8 @@ const GameList = (props : {list:GameItem[], activeIndex: number, className?:stri
                 
                 return (
                 <li 
-                className={`h-16 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden 
-                ${index < props.activeIndex ? "" : (isLive ? "scale-110" : "")}`}  
+                className={`h-24 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden 
+                ${index < props.activeIndex ? "" : (isLive ? "z-[150]" : '')}`}  
                 key={index}
                 id={`game-item-${index}`}
                 >
@@ -144,6 +144,10 @@ const GameList = (props : {list:GameItem[], activeIndex: number, className?:stri
                   </LiveContainer>
                   <div className={`h-full aspect-square grid place-items-center bg-gray-800
                   ${index<props.activeIndex ? 'w-auto' : 'w-0'}`}>
+                    <DoneIcon width={48} className='drop-shadow-glow rounded-full text-yellow-400'/>
+                  </div>
+                  <div className={`h-full aspect-square grid place-items-center bg-red-800
+                  ${index === props.activeIndex ? 'w-auto' : 'w-0'}`}>
                     <DoneIcon width={48} className='drop-shadow-glow rounded-full text-yellow-400'/>
                   </div>
                 </li>)
