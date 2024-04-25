@@ -142,14 +142,12 @@ const GameList = (props : {list:GameItem[], activeIndex: number, className?:stri
                   <LiveContainer isLive={isLive}>
                     <GameCard {...item} index={index} activeIndex={props.activeIndex}/>
                   </LiveContainer>
-                  <div className={`h-full aspect-square grid place-items-center bg-gray-800
-                  ${index<props.activeIndex ? 'w-auto' : 'w-0'}`}>
+                  <div className={`aspect-square grid place-items-center bg-gray-800
+                  ${index<props.activeIndex ? 'w-auto h-full ' : 'w-0'}`}>
                     <DoneIcon width={48} className='drop-shadow-glow rounded-full text-yellow-400'/>
+                    {/*<DoneIcon width={48} className={`drop-shadow-glow rounded-full text-yellow-400`}/> ${index<props.activeIndex ? 'w-auto h-full ' : 'w-0'} CONDITIONALLY STYLE WHAT ICON IS SHOWN, MAKE BG match LIVE RED on active.*/}
                   </div>
-                  <div className={`h-full aspect-square grid place-items-center bg-red-800
-                  ${index === props.activeIndex ? 'w-auto' : 'w-0'}`}>
-                    <DoneIcon width={48} className='drop-shadow-glow rounded-full text-yellow-400'/>
-                  </div>
+      
                 </li>)
                 })}
           </ol>
