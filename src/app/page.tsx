@@ -129,7 +129,7 @@ export default function Home() {
   const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between  bg-sky-950/50 relative">
+    <main className="flex min-h-screen box-border flex-col items-center justify-between  bg-sky-950/50 relative">
       
       <div className="w-full sticky top-0
       border-b-[1px] border-slate-800 bg-slate-900/30
@@ -142,16 +142,12 @@ export default function Home() {
         </ProgressBar>
         
       </div>
-      <div className="grid grid-cols-2 justify-center w-full h-full">
-        <div className="h-full w-full">
-          <div className="p-8 min-w-96 sticky top-0">
-            <TableList schedule={schedule}/>
-          </div>
-        </div>
-        <div className="p-8 w-full max-w-[35rem]">
+
+        
+        <div className="w-full max-w-[35rem] h-full">
           <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
         </div>
-      </div>
+      
       { showVideo && <EventOverDialog setShowVideo={setShowVideo}/>}
       <Footer/>
     </main>
