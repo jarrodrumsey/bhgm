@@ -117,7 +117,7 @@ export default function Page() {
   
     }, 100);
 
-    console.log("EFFECT RERENDER")
+    //console.log("EFFECT RERENDER")
     return () => clearInterval(interval);
   },[schedule, activeIndex, setActiveIndex, incrementDay]);
 
@@ -143,7 +143,7 @@ export default function Page() {
         {/*<button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>*/}
 
         <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
-          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} currentTime={currentTime.toISOString()} />
+          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]}  />
         </ProgressBar>
         
       </div>

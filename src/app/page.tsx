@@ -116,7 +116,7 @@ export default function Home() {
   
     }, 100);
 
-    console.log("EFFECT RERENDER")
+    //console.log("EFFECT RERENDER")
     return () => clearInterval(interval);
   },[schedule, activeIndex, setActiveIndex, incrementDay]);
 
@@ -142,15 +142,14 @@ export default function Home() {
         {/*<button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>*/}
 
         <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
-          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} currentTime={currentTime.toISOString()}/>
+          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} />
         </ProgressBar>
         
       </div>
 
-        
-        <div className="w-full max-w-[35rem] h-full">
-          <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
-        </div>
+      <div className="w-full max-w-[35rem] h-full">
+        <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
+      </div>
 
       <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
 
