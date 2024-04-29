@@ -27,7 +27,9 @@ const config: Config = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
-      
+      colors: {
+        'rich-sky': '#041825',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

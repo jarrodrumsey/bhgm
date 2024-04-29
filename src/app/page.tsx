@@ -1,21 +1,14 @@
 "use client"
-import Image from "next/image";
 import {Schedule} from "./data";
-import moment, { Moment, duration } from "moment";
+import moment, { Moment } from "moment";
 import { Dispatch, ReactNode, SetStateAction, useCallback, useEffect, useState } from "react";
 import GameList, { GameItem } from "./components/game-list";
 import ProgressBar from "./components/progress-bar";
 import TwitchStream from "./components/twitch-stream";
-import { FlagIcon } from "./components/icons/Flag";
 import { XMarkIcon } from "./components/icons/xmark";
-import ProgressInfo from "./components/progress-info";
-import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "./components/utils/schedule.utils"
-
+import {getActiveIndex, getStartEndTimeISO} from "./components/utils/schedule.utils"
 import dynamic from 'next/dynamic'
-import Footer from "./components/footer";
-import TableList from "./components/table-list";
 import Link from "next/link";
-import { PlusIcon } from "./components/icons/Plus";
 const ProgressInfoNOSSR = dynamic(() => import('./components/progress-info'), { ssr: false })
  
 const scrollToGame = (index:number) => {
@@ -134,7 +127,7 @@ export default function Home() {
   const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
 
   return (
-    <main className="flex min-h-screen box-border flex-col items-center justify-between bg-sky-950/50 relative">
+    <main className="flex min-h-screen box-border flex-col items-center justify-between bg-rich-sky relative">
       
       <div className="w-full sticky top-0
       border-b-[1px] border-slate-800 bg-slate-900/30

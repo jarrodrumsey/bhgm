@@ -1,21 +1,16 @@
 "use client"
-import Image from "next/image";
 import {Schedule} from "../data";
-import moment, { Moment, duration } from "moment";
-import { Dispatch, ReactNode, SetStateAction, useCallback, useEffect, useState } from "react";
-import GameList, { GameItem } from "../components/game-list";
+import moment, { Moment } from "moment";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { GameItem } from "../components/game-list";
 import ProgressBar from "../components/progress-bar";
 import TwitchStream from "../components/twitch-stream";
-import { FlagIcon } from "../components/icons/Flag";
 import { XMarkIcon } from "../components/icons/xmark";
-import ProgressInfo from "../components/progress-info";
-import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "../components/utils/schedule.utils"
+import {getActiveIndex, getStartEndTimeISO} from "../components/utils/schedule.utils"
 
 import dynamic from 'next/dynamic'
-import Footer from "../components/footer";
 import TableList from "../components/table-list";
 import Link from "next/link";
-import { PlusIcon } from "../components/icons/Plus";
 const ProgressInfoNOSSR = dynamic(() => import('../components/progress-info'), { ssr: false })
  
 const scrollToGame = (index:number) => {
@@ -42,13 +37,6 @@ const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>
   )
 }
 
-const Button = (props: {children:ReactNode, link:string, target:string}) => {
-  return (
-  <a className="p-4 w-full grid place-items-center cursor-pointer text-white transition-all" href={props.link} target={props.target}>
-    {props.children}
-  </a>
-  )
-}
 
 export default function Page() {
 
@@ -105,7 +93,7 @@ export default function Page() {
       //currentTime = moment()
       //const now = currentTime //moment() // incrementDay(schedule)
       const now = moment()
-      
+
       if(now.isAfter(moment.utc( getStartEndTimeISO(schedule[schedule.length-1]).end_time)))
       {
         setActiveIndex(a => schedule.length*2)
@@ -135,7 +123,7 @@ export default function Page() {
   const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
 
   return (
-    <main className="flex min-h-screen box-border flex-col items-center justify-between bg-sky-950/50 relative">
+    <main className="flex min-h-screen box-border flex-col items-center justify-between bg-rich-sky relative">
       
       <div className="w-full sticky top-0
       border-b-[1px] border-slate-800 bg-slate-900/30
