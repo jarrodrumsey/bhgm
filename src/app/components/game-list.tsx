@@ -83,7 +83,7 @@ const GameCard = (props : GameCardProps) =>
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-        <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120}
+        <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120} placeholder='blur' blurDataURL={props.imageURL}
         className={`absolute object-cover h-full w-full
         ${ props.index < props.activeIndex ? " grayscale-[1] brightness-50" : ""}
         ${ props.index !== props.activeIndex ? " opacity-50" : ""} `}/>
