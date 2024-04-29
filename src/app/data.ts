@@ -297,7 +297,7 @@ export const Schedule = [
     },
     {
         duration: 0.5,
-        imageURL: '/img/1-preshow.png',
+        imageURL: '/img/35-superfancypants.png',
         event: 'Super Fancy Pants Adventures',
         console: 'PC',
         who: 'Lettuce',
