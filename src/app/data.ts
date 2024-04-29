@@ -58,7 +58,7 @@ export const Schedule = [
     {
         duration: 1,
         imageURL: '/img/8-little2left.png',
-        event: 'A Little to the Left + NICK SLEEP CAM',
+        event: 'A Little to the Left',
         console: 'Switch',
         who: 'Skeeter',
         time: '2024-05-04T08:00:00.000Z',
