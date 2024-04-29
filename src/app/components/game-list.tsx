@@ -57,7 +57,7 @@ const TimeInfo = (props: {time:string}) => {
 export const DurationInfo = (props: {duration:number, className?:string}) => {
   return (
     <CardLabel className={`flex flex-row gap-1 items-center justify-end text-sm ${props.className ? props.className : ''}`}>
-      <span aria-label='hours'>{props.duration}H</span>
+      <span aria-label='number of hours'>{props.duration}H</span>
       <ClockIcon width={20}></ClockIcon>
     </CardLabel>)
 }
@@ -112,12 +112,12 @@ const GameCard = (props : GameCardProps) =>
 
         </h2>
 
-        <h3 className={`flex w-full px-4 h-full transition-all z-[1] items-end text-sm font-semibold justify-center
+        <p className={`flex w-full px-4 h-full transition-all z-[1] items-end text-sm font-semibold justify-center
         ${props.index === props.activeIndex ? "pb-2" : "em:py-0 xs:py-2"}
         `}>
           <CardLabel className='em:w-fit xs:w-full'>{props.who}</CardLabel>
           <DurationInfo duration={props.duration} className="em:hidden xs:flex"/>
-        </h3>
+        </p>
       </div>
     </a>)
 }
