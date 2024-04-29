@@ -104,7 +104,7 @@ export default function Home() {
       //currentTime = moment()
       //const now = currentTime //moment() // incrementDay(schedule)
       const now = moment()
-      
+
       if(now.isAfter(moment.utc( getStartEndTimeISO(schedule[schedule.length-1]).end_time)))
       {
         setActiveIndex(a => schedule.length*2)
@@ -149,7 +149,7 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-[35rem] h-full">
-        <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
+        <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/> {/** 423 to leave list (423 was just a random number) */}
       </div>
 
       <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
