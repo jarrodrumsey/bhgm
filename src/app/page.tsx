@@ -101,9 +101,10 @@ export default function Home() {
 
     const interval = setInterval(() => {
       
-      currentTime = moment()
-      const now = currentTime //moment() // incrementDay(schedule)
-
+      //currentTime = moment()
+      //const now = currentTime //moment() // incrementDay(schedule)
+      const now = moment()
+      
       if(now.isAfter(moment.utc( getStartEndTimeISO(schedule[schedule.length-1]).end_time)))
       {
         setActiveIndex(a => schedule.length*2)
