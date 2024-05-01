@@ -225,7 +225,7 @@ export const Schedule = [
     },
     {
         duration: 1,
-        imageURL: '/img/1-preshow.png',
+        imageURL: '/img/29-halftimeaward.png',
         event: 'Half time Show',
         console: 'IRL',
         who: '',
@@ -233,7 +233,7 @@ export const Schedule = [
     },
     {
         duration: 3,
-        imageURL: '/img/1-preshow.png',
+        imageURL: '/img/29-gameolympics.png',
         event: 'The Gaming Olympics',
         console: 'IRL',
         who: 'Everyone',
@@ -257,7 +257,7 @@ export const Schedule = [
     },
     {
         duration: 1.75,
-        imageURL: '/img/1-preshow.png',
+        imageURL: '/img/31-racingwheel.png',
         event: 'Racing Wheel',
         console: 'PC',
         who: 'Everyone',
