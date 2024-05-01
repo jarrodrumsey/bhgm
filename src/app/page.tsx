@@ -9,6 +9,9 @@ import { XMarkIcon } from "./components/icons/xmark";
 import {getActiveIndex, getStartEndTimeISO} from "./components/utils/schedule.utils"
 import dynamic from 'next/dynamic'
 import Link from "next/link";
+import ScheduleHeader from "./components/schedule-header";
+import NavButtonList from "./components/nav-button-list";
+import NavLink from "./components/nav-link";
 const ProgressInfoNOSSR = dynamic(() => import('./components/progress-info'), { ssr: false })
  
 const scrollToGame = (index:number) => {
@@ -108,7 +111,7 @@ export default function Home() {
         console.log(now.toISOString())
       }
   
-    }, 100);
+    }, 1000);
 
     //console.log("EFFECT RERENDER")
     return () => clearInterval(interval);
@@ -127,7 +130,7 @@ export default function Home() {
   const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
 
   return (
-    <main className="flex min-h-screen box-border flex-col items-center justify-between bg-rich-sky relative">
+    <main className="flex min-h-screen box-border flex-col items-center bg-rich-sky relative">
       
       <div className="w-full sticky top-0
       border-b-[1px] border-slate-800 bg-slate-900/30
@@ -141,18 +144,20 @@ export default function Home() {
         
       </div>
 
+      <ScheduleHeader>
+          Game Schedule
+      </ScheduleHeader>
+
       <div className="w-full max-w-[35rem] h-full">
         <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/> {/** 423 to leave list (423 was just a random number) */}
       </div>
 
       <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
 
-         <Link href={"/minimal"} 
-         className=" p-2 rounded-md m-5 w-min text-sm
-         border-[1px] border-sky-400 
-         bg-gradient-to-tr from-blue-500 bg-sky-900 text-nowrap">
-         Simple View
-         </Link>
+            <NavButtonList>
+                <NavLink title='Simple View' href='/minimal'/>
+                <NavLink title='Incentive List' href='/incentives'/>
+            </NavButtonList>
 
 
       </div>

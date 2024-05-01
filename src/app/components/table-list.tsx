@@ -55,7 +55,7 @@ const TableList = (props: {list: GameItem[], activeIndex:number}) => {
                             <TimeInfo time={item.time} />    
                         </h3>
                         <p className={`w-full flex flex-wrap justify-between  items-center text-xs text-gray-500
-                        ${props.activeIndex === index ? 'text-gray-100' : ''}`}>
+                        ${props.activeIndex === index ? 'text-white' : ''}`}>
                             <span className='w-fit'>{item.who}</span>
                             <DurationInfo duration={item.duration} className='text-xs' />
                         </p>

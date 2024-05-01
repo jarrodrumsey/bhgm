@@ -1,3 +1,31 @@
+export const INCENTIVES = [
+    {
+        title: 'Math Exam',
+        amount: 1000,
+        imageURL: '/img/incent-math.png'
+    },
+    {
+        title: 'Costume Party',
+        amount: 3000,
+        imageURL: '/img/incent-dress.png'
+    },
+    {
+        title: 'BHGM Barber Shop',
+        amount: 5000,
+        imageURL: '/img/incent-barber.png'
+    },
+    {
+        title: 'Yuck Yucks Roulette',
+        amount: 7800,
+        imageURL: '/img/incent-yuck.png'
+    },
+    {
+        title: 'BHGM Clown Worship',
+        amount: 10000,
+        imageURL: '/img/incent-clown.png'
+    },
+]
+
 export const Schedule = [
     {
         duration: 0.75,

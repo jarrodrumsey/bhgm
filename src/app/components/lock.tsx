@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LockClosedIcon } from './icons/LockClosed'
 import { LockOpenIcon } from './icons/LockOpen'
 

@@ -42,3 +42,22 @@ export   function getSchedule(list: GameItem[]) : {day:string, list:GameItem[]}[
   const sorted_list : {day:string, list:GameItem[]}[] = Array.from(map, ([day, list]) => ({day, list}))
   return sorted_list
 }
+
+export const initActiveIndex = (schedule:GameItem[], currentTime: Moment) => {
+    
+  const start_time = schedule[0].time
+  const end_time = getStartEndTimeISO(schedule[schedule.length-1]).end_time
+
+  if (moment.utc(start_time).isSameOrAfter(currentTime))
+  {
+    return -1
+  }
+  else if(moment.utc(end_time).isBefore(currentTime))
+  {
+    return schedule.length*2
+  }
+  else
+  {
+    return getActiveIndex(schedule, currentTime)
+  }
+}

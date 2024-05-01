@@ -1,6 +1,5 @@
 
-import React, { ReactNode, useEffect } from 'react'
-import { FlagIcon } from './icons/Flag'
+import React, { ReactNode } from 'react'
 import { TrophyIcon } from './icons/trophy'
 import { StarIcon } from './icons/star'
 
