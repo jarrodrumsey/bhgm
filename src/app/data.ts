@@ -172,7 +172,7 @@ export const Schedule = [
         time: '2024-05-05T02:00:00.000Z',
     },
     {
-        duration: 1.5,
+        duration: 2,
         imageURL: '/img/19-leaguelegends.png',
         event: 'League of Legends ARAMS',
         console: 'PC',
@@ -180,7 +180,7 @@ export const Schedule = [
         time: '2024-05-05T06:00:00.000Z',
     },
     {
-        duration: 2,
+        duration: 1.5,
         imageURL: '/img/20-marioparty.png',
         event: 'Mario Party Superstars',
         console: 'Switch',
@@ -336,7 +336,7 @@ export const Schedule = [
         imageURL: '/img/35-rhythmheaven.png',
         event: 'Rhythm Heaven Fever',
         console: 'Wii',
-        who: 'CoPilot, Bestea',
+        who: 'CoPilot & Bestea',
         time: '2024-05-06T20:00:00.000Z',
     },
     {
@@ -392,7 +392,7 @@ export const Schedule = [
         imageURL: '/img/41-wiiplay.png',
         event: 'Wii Play',
         console: 'Wii',
-        who: 'Baked Potato, Two Headed Boy',
+        who: 'Baked Potato & Two Headed Boy',
         time: '2024-05-07T08:15:00.000Z',
     },
     {
@@ -412,12 +412,20 @@ export const Schedule = [
         time: '2024-05-07T10:45:00.000Z',
     },
     {
-        duration: 5,
-        imageURL: '/img/44-hogwartslegacy.png',
-        event: 'Hogwarts Legacy',
+        duration: 4,
+        imageURL: '/img/44-switchblock.png',
+        event: 'Switch Variety Block',
         console: 'PC',
-        who: 'Busk',
+        who: 'Everyone',
         time: '2024-05-07T12:45:00.000Z',
+    },
+    {
+        duration: 1,
+        imageURL: '/img/44-sidepocket.png',
+        event: 'Side Pockets',
+        console: 'SNES',
+        who: 'HoopsNL & Snoopy',
+        time: '2024-05-07T16:45:00.000Z',
     },
     {
         duration: 1,
