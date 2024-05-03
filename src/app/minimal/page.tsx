@@ -1,22 +1,22 @@
 "use client"
 import Image from "next/image";
-import {Schedule} from "./data";
+import {Schedule} from "../data";
 import moment, { Moment, duration } from "moment";
 import { Dispatch, ReactNode, SetStateAction, useCallback, useEffect, useState } from "react";
-import GameList, { GameItem } from "./components/game-list";
-import ProgressBar from "./components/progress-bar";
-import TwitchStream from "./components/twitch-stream";
-import { FlagIcon } from "./components/icons/Flag";
-import { XMarkIcon } from "./components/icons/xmark";
-import ProgressInfo from "./components/progress-info";
-import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "./utils/schedule.utils"
+import GameList, { GameItem } from "../components/game-list";
+import ProgressBar from "../components/progress-bar";
+import TwitchStream from "../components/twitch-stream";
+import { FlagIcon } from "../components/icons/Flag";
+import { XMarkIcon } from "../components/icons/xmark";
+import ProgressInfo from "../components/progress-info";
+import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "../utils/schedule.utils"
 
 import dynamic from 'next/dynamic'
-import Footer from "./components/footer";
-import TableList from "./components/table-list";
+import Footer from "../components/footer";
+import TableList from "../components/table-list";
 import Link from "next/link";
-import { PlusIcon } from "./components/icons/Plus";
-const ProgressInfoNOSSR = dynamic(() => import('./components/progress-info'), { ssr: false })
+import { PlusIcon } from "../components/icons/Plus";
+const ProgressInfoNOSSR = dynamic(() => import('../components/progress-info'), { ssr: false })
  
 const scrollToGame = (index:number) => {
   const element = document.getElementById(`game-item-${index}`);
@@ -50,7 +50,7 @@ const Button = (props: {children:ReactNode, link:string, target:string}) => {
   )
 }
 
-export default function Home() {
+export default function Page() {
 
   const schedule : GameItem[] = Schedule
   const [testDay, setTestDay] = useState(-1);
@@ -92,10 +92,11 @@ export default function Home() {
       return getActiveIndex(schedule, currentTime)}
     }
 
-
   let currentTime = moment();
+
   const [activeIndex, setActiveIndex] = useState(initActiveIndex(schedule, currentTime));
   const [showVideo, setShowVideo] = useState(activeIndex === schedule.length);
+
 
   useEffect(() => {
 
@@ -142,23 +143,22 @@ export default function Home() {
         <button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>
 
         <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
-          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} currentTime={currentTime.toISOString()}/>
+          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} currentTime={currentTime.toISOString()} />
         </ProgressBar>
         
       </div>
 
-        
-        <div className="w-full max-w-[35rem] h-full">
-          <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
+        <div className="w-full max-w-[45rem] h-full">
+          <TableList list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
         </div>
 
       <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
 
-         <Link href={"/minimal"} 
+         <Link href={"/"} 
          className=" p-2 rounded-md m-5 w-min text-sm
          border-[1px] border-sky-400 
          bg-gradient-to-tr from-blue-500 bg-sky-900 text-nowrap">
-         Simple View
+         Main View
          </Link>
 
 

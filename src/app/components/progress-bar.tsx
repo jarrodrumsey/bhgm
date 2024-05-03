@@ -8,12 +8,13 @@ import { StarIcon } from './icons/star'
 const ProgressBar = (props: {children?:ReactNode, value:number, max:number, color:string, background: string}) => {
 
   return (
-    <div className='w-full flex items-center gap-4'>
-      <label className='text-xs'></label>
-      <StarIcon width={24} className={`${props.value >= 0 ? " text-yellow-500" : ""}`}/>
-      <div className={`${props.background} w-full h-6 top-0 rounded-full drop-shadow-lg relative `}>
+    <div className='w-full flex items-center justify-center gap-2'>
+      <div className='w-auto  em:hidden xs:block'>
+        <StarIcon width={24} aria-label='Countdown START' className={`${props.value >= 0 ? " text-yellow-500" : ""}`}/>
+      </div>
+      <div className={`${props.background} w-full h-fit max-h-10 top-0 rounded-full drop-shadow-lg relative `}>
           <div 
-          className={`${props.color} w-0 h-full transition-all drop-shadow-glow rounded-[inherit]`}
+          className={`${props.color} absolute top-0 left-0 w-0 h-full transition-all drop-shadow-glow rounded-[inherit] -z-10`}
           style={{
               width: `${props.value <= props.max ? (props.value/props.max)*100 : 100}%`,
               borderBottomRightRadius: props.value < props.max ? '1rem' : '',
@@ -21,12 +22,18 @@ const ProgressBar = (props: {children?:ReactNode, value:number, max:number, colo
               }}
           >
           </div>
-          <div className='absolute top-0 left-0 w-full h-full flex flex-row justify-center px-4 items-center text-sm'>
+          <div className='w-full h-full flex flex-row em:justify-between xs:justify-center px-2 em:py-0 em:items-start xxs:items-center sm:py-2   '>
+            <div className='w-auto em:block xs:hidden relative'>
+              <StarIcon width={24} aria-label='Countdown START' className={`${props.value >= 0 ? " text-yellow-500" : ""}`}/>
+            </div>
             {props.children}
+            <div className='w-auto em:block xs:hidden relative'>
+              <TrophyIcon width={24} aria-label='Countdown FINISH' className={`${props.value >= props.max ? "drop-shadow-simiar text-yellow-500" : ""}`}/>
+            </div>
           </div>
       </div>
-      <div>
-        <TrophyIcon width={24} className={`${props.value >= props.max ? "drop-shadow-simiar text-yellow-500" : ""}`}/>
+      <div className='w-auto em:hidden xs:block'>
+        <TrophyIcon width={24} aria-label='Countdown FINISH' className={`${props.value >= props.max ? "drop-shadow-simiar text-yellow-500" : ""}`}/>
       </div>
     </div>
   )
