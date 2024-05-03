@@ -139,7 +139,7 @@ export default function Home() {
       border-b-[1px] border-slate-800 bg-slate-900/30
       z-40  backdrop-blur-lg flex  p-4 flex-col gap-2 ">
 
-        <button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>
+        {/*<button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>*/}
 
         <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
           <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]} currentTime={currentTime.toISOString()}/>
