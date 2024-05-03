@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DurationInfo, GameItem } from './game-list'
 
-import { getSchedule } from '../utils/schedule.utils'
+import { getSchedule } from './utils/schedule.utils'
 import moment from 'moment-timezone'
 
 const TimeInfo = (props: {time:string, className?:string}) => {

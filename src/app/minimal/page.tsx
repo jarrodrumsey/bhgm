@@ -9,7 +9,7 @@ import TwitchStream from "../components/twitch-stream";
 import { FlagIcon } from "../components/icons/Flag";
 import { XMarkIcon } from "../components/icons/xmark";
 import ProgressInfo from "../components/progress-info";
-import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "../utils/schedule.utils"
+import {AFTER_INDEX_VALUE, getActiveIndex, getDeltaTime, getStartEndTimeISO} from "../components/utils/schedule.utils"
 
 import dynamic from 'next/dynamic'
 import Footer from "../components/footer";

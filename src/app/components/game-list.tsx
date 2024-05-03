@@ -5,7 +5,7 @@ import React, { ReactNode, useState } from 'react'
 import { ClockIcon } from './icons/time'
 import Image from 'next/image'
 import { DoneIcon } from './icons/done';
-import { getSchedule } from '../utils/schedule.utils';
+import { getSchedule } from './utils/schedule.utils';
 export type GameItem = {
     duration: number, 
     event: string, 

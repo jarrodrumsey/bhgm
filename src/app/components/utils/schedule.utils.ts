@@ -1,5 +1,5 @@
 import moment, { Moment } from "moment"
-import { GameItem } from "../components/game-list"
+import { GameItem } from "../game-list"
 
 export const AFTER_INDEX_VALUE = Infinity
 export const getStartEndTimeISO = (timeslot:GameItem) : {start_time:string, end_time:string} =>
