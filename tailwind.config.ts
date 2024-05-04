@@ -12,7 +12,8 @@ const config: Config = {
     extend: {
       screens: {
         'em': '10px',
-        'xxs': '170px',
+        '3xs': '150px',
+        '2xs': '250px',
         'xs': '350px',
       },
       colors: {
