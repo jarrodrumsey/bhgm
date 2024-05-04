@@ -1,5 +1,13 @@
 import moment, { Moment } from "moment"
-import { GameItem } from "../game-list"
+
+export type GameItem = {
+  duration: number, 
+  event: string, 
+  console: string, 
+  who: string, 
+  time: string,
+  imageURL: string,
+}
 
 export const AFTER_INDEX_VALUE = Infinity
 export const getStartEndTimeISO = (timeslot:GameItem) : {start_time:string, end_time:string} =>
@@ -60,4 +68,21 @@ export const initActiveIndex = (schedule:GameItem[], currentTime: Moment) => {
   {
     return getActiveIndex(schedule, currentTime)
   }
+}
+
+export const scrollToGame = (index:number) => {
+  const element = document.getElementById(`game-item-${index}`);
+  if(element){
+    element.scrollIntoView({behavior:'smooth', block: 'center', inline: 'center'})
+  }
+};
+
+export const DayLabel = (props: {day:string, time:string}) => {
+  return (<h2 className='
+  em:[writing-mode:horizontal-lr] 
+  xs:[writing-mode:vertical-lr] 
+  p-2 flex justify-start  border-sky-900 border-[1px] rounded-lg flex-wrap'>
+    <span className='em:hidden 3xs:block'>{props.day + " / "}</span>
+    <span>{moment.utc(props.time).local().format('MMMM Do')}</span>
+  </h2>)
 }

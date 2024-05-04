@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { DurationInfo, GameItem } from './game-list'
-
-import { getSchedule } from './utils/schedule.utils'
+import { DurationInfo } from './game-list'
+import { GameItem, getSchedule, DayLabel } from './utils/schedule.utils'
 import moment from 'moment-timezone'
 
 const TimeInfo = (props: {time:string, className?:string}) => {
@@ -18,6 +17,38 @@ const TimeInfo = (props: {time:string, className?:string}) => {
             </div>
 }
 
+const TableItem = (props: {activeIndex?: number, index?:number, data:GameItem}) => {
+
+  const isLive = props.activeIndex === props.index
+  const data = props.data
+
+  return(<>
+    <div className={`flex flex-col gap- w-full h-full justify-center transition-all
+      ${isLive ? 'bg-red-500 rounded-md px-2 ' : ''}
+      `}>
+          <h3 className={`w-full flex em:flex-col xs:flex-row em:items-center xs:items-start justify-between text-xs
+          ${isLive ? 'font-bold' : ''}
+          `}>
+              <span className='font-bold em:text-center xs:text-left 2xs:text-nowrap xs:w-full xs:text-wrap'>
+                {data.event}
+              </span>
+              <TimeInfo time={data.time} />    
+          </h3>
+          <p className={`w-full flex flex-wrap justify-between  items-center text-xs text-gray-500
+          ${isLive ? 'text-white' : ''}`}>
+              <span className='w-fit'>{data.who}</span>
+              <DurationInfo duration={data.duration} className='text-xs' />
+          </p>
+    </div>
+    <div className={` text-xs [writing-mode:vertical-rl]
+        ${isLive ? "drop-shadow-lg block" : "hidden"}`}>
+        <span className={`bg-red-500 p-2 rounded-md block text-wrap uppercase w-full text-center font-bold text-xs
+        ${isLive ? "w-fit h-full" : "w-0 h-0"}`}>LIVE</span>
+    </div>
+
+  </>)
+}
+
 const TableList = (props: {list: GameItem[], activeIndex:number}) => {
 
   const [schedule] = useState(getSchedule(props.list))
@@ -28,47 +59,23 @@ const TableList = (props: {list: GameItem[], activeIndex:number}) => {
       schedule.map((group: {day:string, list:GameItem[]}, day_number:number) => { 
         return(<div key={day_number} id={`day-${day_number}`} 
         className='flex em:flex-col xs:flex-row-reverse py-2 border-b-[2px] border-sky-500' >
-          <h2 className='          
-          em:[writing-mode:horizontal-lr] 
-          xs:[writing-mode:vertical-lr] 
-          p-2 flex justify-between  border-sky-900 border-[1px] rounded-lg'>
-            {group.day + " / " + moment.utc(group.list[0].time).local().format('MMMM Do')}
-          </h2>
+          <DayLabel day={group.day} time={group.list[0].time}/>
           <ol className='w-full flex flex-col items-start text-sm' >
             {
               group.list.map((item, listIndex) => {
 
                 index++
-                
+                const isLast = listIndex === group.list.length-1
+
                 return (
-                <li 
-                id={`game-item-${index}`}
-                className={` w-full p-1 relative flex gap-1
-                ${listIndex === group.list.length-1 ? "" : "border-b-[1px] border-sky-900"}  `} key={index}>
-                    <div className={`flex flex-col gap- w-full h-full justify-center transition-all
-                    ${props.activeIndex === index ? 'bg-red-500 rounded-md px-2 ' : ''}
-                    `}>
-                        <h3 className={`w-full flex em:flex-col xs:flex-row em:items-center xs:items-start justify-between text-xs
-                        ${props.activeIndex === index ? 'font-bold' : ''}
-                        `}>
-                            <span className='font-bold em:w-min em:text-nowrap xs:w-full xs:text-wrap'>{item.event}</span>
-                            <TimeInfo time={item.time} />    
-                        </h3>
-                        <p className={`w-full flex flex-wrap justify-between  items-center text-xs text-gray-500
-                        ${props.activeIndex === index ? 'text-white' : ''}`}>
-                            <span className='w-fit'>{item.who}</span>
-                            <DurationInfo duration={item.duration} className='text-xs' />
-                        </p>
-                        
-                    </div>
-                    <div className={` text-xs [writing-mode:vertical-rl]
-                        ${props.activeIndex === index ? "drop-shadow-lg block" : "hidden"}`}>
-                        <span className={`bg-red-500 p-2 rounded-md block text-wrap uppercase w-full text-center font-bold text-xs
-                        ${props.activeIndex === index ? "w-fit h-full" : "w-0 h-0"}`}>LIVE</span>
-                    </div>
-       
-                </li>)
-                })}
+                  <li 
+                  id={`game-item-${index}`} 
+                  key={index}
+                  className={` w-full p-1 relative flex gap-1 ${isLast ? "" : "border-b-[1px] border-sky-900"}  `}>
+                      <TableItem data={item} activeIndex={props.activeIndex} index={index}/>
+                  </li>
+                )
+              })}
           </ol>
         </div>)})
     }</div>

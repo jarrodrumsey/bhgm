@@ -1,25 +1,14 @@
 "use client"
 import {Schedule} from "../data";
-import moment, { Moment } from "moment";
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
-import { GameItem } from "../components/game-list";
-import ProgressBar from "../components/progress-bar";
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import TwitchStream from "../components/twitch-stream";
 import { XMarkIcon } from "../components/icons/xmark";
-import {getActiveIndex, getStartEndTimeISO} from "../components/utils/schedule.utils"
-import dynamic from 'next/dynamic'
 import TableList from "../components/table-list";
 import ScheduleHeader from "../components/schedule-header";
 import NavButtonList from "../components/nav-button-list";
 import NavLink from "../components/nav-link";
-const ProgressInfoNOSSR = dynamic(() => import('../components/progress-info'), { ssr: false })
- 
-const scrollToGame = (index:number) => {
-  const element = document.getElementById(`game-item-${index}`);
-  if(element){
-    element.scrollIntoView({behavior:'smooth', block: 'center', inline: 'center'})
-  }
-};
+import { ActiveIndexContext } from "../components/providers/active-index-context"
+import { GameItem, scrollToGame } from "../components/utils/schedule.utils";
 
 const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>}) => {
   return (
@@ -39,125 +28,32 @@ const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>
 }
 
 
-export default function Page() {
+export default function SchedulePageMinimal() {
 
+  const activeIndex = useContext(ActiveIndexContext)
   const schedule : GameItem[] = Schedule
-  const [testDay, setTestDay] = useState(-1);
-
-  const incrementDay = useCallback((schedule: GameItem[]) => {
-
-    const isBefore : boolean = testDay <= -1
-    const isAfter : boolean = testDay >= schedule.length
-    let day : Moment
-
-    if(isBefore)      { day = moment().subtract(100, 'years') }
-    else if (isAfter) { day = moment().add(100, 'years')}
-    else              { day = moment.utc(schedule[testDay].time)}
-  
-    if(testDay < schedule.length) { 
-      setTestDay(i => (i+1)); 
-      console.log("TEST DAY INCREMENTED", testDay + " " + schedule.length) 
-    }
-
-    return day
-
-  }, [testDay, setTestDay])
-
-  const initActiveIndex = (schedule:GameItem[], currentTime: Moment) => {
-    
-    const start_time = schedule[0].time
-    const end_time = getStartEndTimeISO(schedule[schedule.length-1]).end_time
-
-    if (moment.utc(start_time).isSameOrAfter(currentTime))
-    {
-      return -1
-    }
-    else if(moment.utc(end_time).isBefore(currentTime))
-    {
-      return schedule.length*2
-    }
-    else
-    {
-      return getActiveIndex(schedule, currentTime)}
-    }
-
-  let currentTime = moment();
-
-  const [activeIndex, setActiveIndex] = useState(initActiveIndex(schedule, currentTime));
   const [showVideo, setShowVideo] = useState(activeIndex === schedule.length);
-
-
-  useEffect(() => {
-
-    const interval = setInterval(() => {
-      
-      //currentTime = moment()
-      //const now = incrementDay(schedule)
-      const now = moment()
-
-      if(now.isAfter(moment.utc( getStartEndTimeISO(schedule[schedule.length-1]).end_time)))
-      {
-        setActiveIndex(a => schedule.length*2)
-      }
-      else if((activeIndex < schedule.length-1) && now.isSameOrAfter(moment(schedule[activeIndex+1].time)))
-      {
-        setActiveIndex(a => a+1)
-        console.log(now.toISOString())
-      }
-  
-    }, 1000);
-
-    //console.log("EFFECT RERENDER")
-    return () => clearInterval(interval);
-  },[schedule, activeIndex, setActiveIndex, incrementDay]);
 
   useEffect(() => {
     activeIndex >= schedule.length ? setShowVideo(true) : null
     scrollToGame(activeIndex) 
   }, [activeIndex, schedule.length])
 
-  const incrementIndex = () =>{
-    setActiveIndex(activeIndex+1)
-  }
-
-  const start_countdown = {label:"BHGM will begin in ", time: schedule[0].time, endLabel: ""}
-  const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
-
   return (
     <main className="flex min-h-screen box-border flex-col items-center bg-rich-sky relative">
-      
-      <div className="w-full sticky top-0
-      border-b-[1px] border-slate-800 bg-slate-900/30
-      z-40  backdrop-blur-lg flex  p-4 flex-col gap-2 ">
-
-        {/*<button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>*/}
-
-        <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
-          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]}  />
-        </ProgressBar>
-        
+      <ScheduleHeader>
+        Game Schedule
+      </ScheduleHeader>
+      <div className="w-full max-w-[45rem] h-full">
+        <TableList list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
       </div>
-
-        <ScheduleHeader>
-          Game Schedule
-        </ScheduleHeader>
-
-        <div className="w-full max-w-[45rem] h-full">
-          <TableList list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
-        </div>
-
       <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
-
-            <NavButtonList>
-                <NavLink title='Main View' href='/'/>
-                <NavLink title='Incentive List' href='/incentives'/>
-            </NavButtonList>
-
-
+        <NavButtonList>
+            <NavLink title='Main View' href='/'/>
+            <NavLink title='Incentive List' href='/incentives'/>
+        </NavButtonList>
       </div>
-      
       { showVideo && <EventOverDialog setShowVideo={setShowVideo}/>}
-
     </main>
   );
 }

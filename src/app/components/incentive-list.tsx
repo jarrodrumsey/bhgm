@@ -72,16 +72,12 @@ const IncentiveList = (props : {list:IncentiveItem[], className?:string}) => {
     <ol className={`${props.className ? props.className : ''} w-full items-center justify-between flex flex-col gap-3 `}>
     {
       props.list.map((item, index) => {
-
-
-        
         return (
           <li 
           className={`h-16 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden`}  
           key={index}
           id={`incentive-item-${index}`}
           >
-
           <IncentiveCard {...item} index={index}/>
           </li>)
       })
