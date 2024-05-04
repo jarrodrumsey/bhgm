@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { DurationInfo } from './game-list'
-import { GameItem, getSchedule } from './utils/schedule.utils'
+import { GameItem, getSchedule, DayLabel } from './utils/schedule.utils'
 import moment from 'moment-timezone'
 
 const TimeInfo = (props: {time:string, className?:string}) => {
@@ -29,7 +29,7 @@ const TableItem = (props: {activeIndex?: number, index?:number, data:GameItem}) 
           <h3 className={`w-full flex em:flex-col xs:flex-row em:items-center xs:items-start justify-between text-xs
           ${isLive ? 'font-bold' : ''}
           `}>
-              <span className='font-bold em:w-min em:text-nowrap xs:w-full xs:text-wrap'>
+              <span className='font-bold em:text-center xs:text-left 2xs:text-nowrap xs:w-full xs:text-wrap'>
                 {data.event}
               </span>
               <TimeInfo time={data.time} />    
@@ -59,10 +59,7 @@ const TableList = (props: {list: GameItem[], activeIndex:number}) => {
       schedule.map((group: {day:string, list:GameItem[]}, day_number:number) => { 
         return(<div key={day_number} id={`day-${day_number}`} 
         className='flex em:flex-col xs:flex-row-reverse py-2 border-b-[2px] border-sky-500' >
-          <h2 className=' em:[writing-mode:horizontal-lr] xs:[writing-mode:vertical-lr] 
-          p-2 flex justify-between  border-sky-900 border-[1px] rounded-lg'>
-            {group.day + " / " + moment.utc(group.list[0].time).local().format('MMMM Do')}
-          </h2>
+          <DayLabel day={group.day} time={group.list[0].time}/>
           <ol className='w-full flex flex-col items-start text-sm' >
             {
               group.list.map((item, listIndex) => {

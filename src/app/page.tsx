@@ -27,7 +27,7 @@ const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>
   )
 }
 
-export default function Home() {
+export default function SchedulePage() {
 
   const activeIndex = useContext(ActiveIndexContext)
   const schedule : GameItem[] = Schedule

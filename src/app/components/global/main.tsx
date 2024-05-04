@@ -2,10 +2,11 @@
 import React, { ReactNode, useCallback, useEffect, useState, createContext } from 'react'
 import MainBar from './main-bar'
 import { Schedule } from '../../data'
-import { GameItem, getActiveIndex, getStartEndTimeISO, initActiveIndex } from '../utils/schedule.utils'
+import { GameItem, getStartEndTimeISO, initActiveIndex } from '../utils/schedule.utils'
 
 import moment, { Moment } from 'moment-timezone'
 import { ActiveIndexContext } from '../providers/active-index-context'
+import NavMenu from './nav-menu'
 
 
 const Main = (props:{children:ReactNode}) => {
@@ -32,24 +33,6 @@ const Main = (props:{children:ReactNode}) => {
 
   }, [testDay, setTestDay])
 
-  const initActiveIndex = (schedule:GameItem[], currentTime: Moment) => {
-    
-    const start_time = schedule[0].time
-    const end_time = getStartEndTimeISO(schedule[schedule.length-1]).end_time
-
-    if (moment.utc(start_time).isSameOrAfter(currentTime))
-    {
-      return -1
-    }
-    else if(moment.utc(end_time).isBefore(currentTime))
-    {
-      return schedule.length*2
-    }
-    else
-    {
-      return getActiveIndex(schedule, currentTime)}
-    }
-
   let currentTime = moment();
   const [activeIndex, setActiveIndex] = useState(initActiveIndex(schedule, currentTime));
 
@@ -67,14 +50,11 @@ const Main = (props:{children:ReactNode}) => {
         setActiveIndex(a => a+1)
         console.log(now.toISOString())
       }
-  
     }, 1000);
 
     //console.log("EFFECT RERENDER")
     return () => clearInterval(interval);
   },[schedule, activeIndex, setActiveIndex, incrementDay]);
-
-  const incrementIndex = () =>{ setActiveIndex(activeIndex+1) }
 
   const start_countdown = {label:"BHGM will begin in ", time: schedule[0].time, endLabel: ""}
   const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}

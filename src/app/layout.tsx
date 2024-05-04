@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg"/>
         <link rel="icon" type="image/png" href="/favicon/favicon.png"/>
       </head>
-      <body className={`${inter.className} text-white bg-rich-sky`}>
+      <body className={`${inter.className} text-white bg-rich-sky flex flex-col w-full min-h-screen`}>
         <Main>
           {children}
         </Main>

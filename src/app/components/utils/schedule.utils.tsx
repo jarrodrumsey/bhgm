@@ -76,3 +76,13 @@ export const scrollToGame = (index:number) => {
     element.scrollIntoView({behavior:'smooth', block: 'center', inline: 'center'})
   }
 };
+
+export const DayLabel = (props: {day:string, time:string}) => {
+  return (<h2 className='
+  em:[writing-mode:horizontal-lr] 
+  xs:[writing-mode:vertical-lr] 
+  p-2 flex justify-start  border-sky-900 border-[1px] rounded-lg flex-wrap'>
+    <span className='em:hidden 3xs:block'>{props.day + " / "}</span>
+    <span>{moment.utc(props.time).local().format('MMMM Do')}</span>
+  </h2>)
+}

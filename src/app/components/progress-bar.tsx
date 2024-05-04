@@ -22,11 +22,11 @@ const ProgressBar = (props: {children?:ReactNode, value:number, max:number, colo
           >
           </div>
           <div className='w-full h-full flex flex-row em:justify-between xs:justify-center px-2 em:py-0 em:items-start xxs:items-center sm:py-2   '>
-            <div className='w-auto em:block xs:hidden relative'>
+            <div className='w-auto em:hidden 2xs:block xs:hidden relative'>
               <StarIcon width={24} aria-label='Countdown START' className={`${props.value >= 0 ? " text-yellow-500" : ""}`}/>
             </div>
             {props.children}
-            <div className='w-auto em:block xs:hidden relative'>
+            <div className='w-auto em:hidden 2xs:block xs:hidden relative'>
               <TrophyIcon width={24} aria-label='Countdown FINISH' className={`${props.value >= props.max ? "drop-shadow-simiar text-yellow-500" : ""}`}/>
             </div>
           </div>

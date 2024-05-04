@@ -6,7 +6,7 @@ interface NavButtonListProps {
 
 const NavButtonList: React.FC<NavButtonListProps> = ({children}) => {
   return (
-    <div className='m-5 w-min text-sm flex flex-col gap-2'>
+    <div className='em:m-0 2xs:m-5 w-min text-sm flex flex-col gap-2'>
         {children}
     </div>
   )

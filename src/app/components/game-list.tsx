@@ -1,12 +1,10 @@
 "use client"
-
 import moment from 'moment-timezone';
 import React, { ReactNode, useState } from 'react'
 import { ClockIcon } from './icons/time'
 import Image from 'next/image'
 import { DoneIcon } from './icons/done';
-import { GameItem, getSchedule } from './utils/schedule.utils';
-
+import { GameItem, getSchedule, DayLabel } from './utils/schedule.utils';
 
 type GameCardProps = GameItem & {index: number, activeIndex: number, className?: string}
 
@@ -96,14 +94,7 @@ const GameCard = (props : GameCardProps) =>
     </a>)
 }
 
-const DayLabel = (props: {day:string, time:string}) => {
-  return (<h2 className='
-  em:[writing-mode:horizontal-lr] 
-  xs:[writing-mode:vertical-lr] 
-  p-2 flex justify-between  border-sky-900 border-[1px] rounded-lg'>
-    {props.day + " / " + moment.utc(props.time).local().format('MMMM Do')}
-  </h2>)
-}
+
 
 const GameList = (props : {list:GameItem[], activeIndex: number, className?:string}) => {
 
