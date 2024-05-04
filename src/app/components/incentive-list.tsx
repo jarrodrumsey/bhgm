@@ -14,7 +14,7 @@ type IncentiveCardProps = IncentiveItem & {index: number, className?: string}
 
 const CardLabel = (props: {children?:ReactNode, className?: string}) =>
 {
-  return <span className={`${props.className}`}>
+  return <span className={`${props.className ?? ''}`}>
     {props.children}
   </span>
 }
@@ -69,7 +69,7 @@ const IncentiveList = (props : {list:IncentiveItem[], className?:string}) => {
   return (
   <div className={`flex gap-3 p-3`} >
 
-    <ol className={`${props.className ? props.className : ''} w-full items-center justify-between flex flex-col gap-3 `}>
+    <ol className={`${props.className ?? ''} w-full items-center justify-between flex flex-col gap-3 `}>
     {
       props.list.map((item, index) => {
         return (
