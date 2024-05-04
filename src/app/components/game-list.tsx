@@ -4,7 +4,7 @@ import React, { ReactNode, useState } from 'react'
 import { ClockIcon } from './icons/time'
 import Image from 'next/image'
 import { DoneIcon } from './icons/done';
-import { GameItem, getSchedule, DayLabel } from './utils/schedule.utils';
+import { GameItem, getSchedule, DayLabel, TimeInfo } from './utils/schedule.utils';
 
 type GameCardProps = GameItem & {index: number, activeIndex: number, className?: string}
 
@@ -28,18 +28,6 @@ const CardLabel = (props: {children?:ReactNode, className?: string}) =>
     <span className={`${props.className}`}>
       {props.children}
     </span>)
-}
-
-const TimeInfo = (props: {time:string}) => {
-
-  const time= moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')
-  const timeZone = moment.tz.guess()
-  const timeZoneOffset = new Date(props.time).getTimezoneOffset();
-  const abr = moment.tz.zone(timeZone)?.abbr(timeZoneOffset)
-
-  return  <div className='text-nowrap inline-block'>
-            <span>{time +" (" + abr + ")"}</span>
-          </div>
 }
 
 export const DurationInfo = (props: {duration:number, className?:string}) => {
