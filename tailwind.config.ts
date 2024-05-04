@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -7,26 +8,13 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    screens: {
-      'em': '10px',
-      'xxs': '170px',
-      'xs': '350px',
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
-    },
     extend: {
+      screens: {
+        'em': '10px',
+        'xxs': '170px',
+        'xs': '350px',
+      },
       colors: {
         'rich-sky': '#041825',
       },
@@ -54,12 +42,17 @@ const config: Config = {
         slide: {
           '0%': { transform: 'translateX(0px)' },
           '50%': { transform: 'translateX(85%)' },
-        }
-
+        },
+        loading: {
+          '0%': { transform: `rotate(0deg)` },
+          '100%': { transform: `rotate(360deg)` },
+        },
       },
+      
       animation: {
         'shifting' : 'shift 2s linear infinite',
-        'slide': 'slide 10s linear infinite'
+        'slide': 'slide 10s linear infinite',
+        'loading-spin': 'slide 1s linear infinite',
       },
     },
   },
