@@ -17,20 +17,20 @@ const CountDownItem = (countdown: CountDownItemProps) =>
       <div className=' em:text-xs xs:text-sm text-center h-full overflow-clip '>
           <h2 className='font-bold sm:inline-block em:hidden  '>
           {`
-              ${countdown.label ? countdown.label : ''} 
+              ${countdown.label ?? ''} 
               ${clamp(countDown[0], 0)} days 
               ${clamp(countDown[1], 0)} hours
               ${clamp(countDown[2], 0)} minutes
               ${clamp(countDown[3], 0)} seconds
-              ${countdown.endLabel ? countdown.endLabel : ''} 
+              ${countdown.endLabel ?? ''} 
           `}
           </h2>
           
           <h2 className='font-bold sm:hidden em:inline-block'>
           {`
-              ${countdown.label ? countdown.label : ''} 
+              ${countdown.label ?? ''} 
               ${clamp(countDown[0], 0)}:${clamp(countDown[1], 0)}:${clamp(countDown[2], 0)}:${clamp(countDown[3], 0)}
-              ${countdown.endLabel ? countdown.endLabel : ''} 
+              ${countdown.endLabel ?? ''} 
           `}
           </h2>
       </div>

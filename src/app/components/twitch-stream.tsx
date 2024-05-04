@@ -10,7 +10,7 @@ export const TwitchStream = (props : {channel: string, width: number, height: nu
         height={props.height}
         width={props.width}
         allowFullScreen={true}
-        className={`${props.className} absolute top-0 left-0 bottom-0 right-0 w-full h-full`}
+        className={`${props.className ?? ''} absolute top-0 left-0 bottom-0 right-0 w-full h-full`}
       ></iframe>
       <style jsx>{`
         .stream-container {
