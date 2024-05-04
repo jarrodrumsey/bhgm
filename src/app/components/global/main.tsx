@@ -3,11 +3,8 @@ import React, { ReactNode, useCallback, useEffect, useState, createContext } fro
 import MainBar from './main-bar'
 import { Schedule } from '../../data'
 import { GameItem, getStartEndTimeISO, initActiveIndex } from '../utils/schedule.utils'
-
 import moment, { Moment } from 'moment-timezone'
 import { ActiveIndexContext } from '../providers/active-index-context'
-import NavMenu from './nav-menu'
-
 
 const Main = (props:{children:ReactNode}) => {
 
