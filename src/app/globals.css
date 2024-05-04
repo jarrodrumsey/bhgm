@@ -38,9 +38,12 @@ body {
     syntax: "<angle>";
   }
 
-  @keyframes spin {
+  @keyframes bg-spin {
     to {
       --bg-angle: 360deg;
+    }
+    from {
+      --bg-angle: 0deg;
     }
   }
   
