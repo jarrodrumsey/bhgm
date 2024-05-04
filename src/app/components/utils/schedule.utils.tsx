@@ -82,7 +82,19 @@ export const DayLabel = (props: {day:string, time:string}) => {
   em:[writing-mode:horizontal-lr] 
   xs:[writing-mode:vertical-lr] 
   p-2 flex justify-start  border-sky-900 border-[1px] rounded-lg flex-wrap'>
-    <span className='em:hidden 3xs:block'>{props.day + " / "}</span>
-    <span>{moment.utc(props.time).local().format('MMMM Do')}</span>
+    <span className='em:hidden 3xs:block'>{props.day + " /\u00A0"}</span>
+    <span>{""+moment.utc(props.time).local().format('MMMM Do')}</span>
   </h2>)
+}
+
+export const TimeInfo = (props: {time:string, className?:string}) => {
+
+  const time= moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')
+  const timeZone = moment.tz.guess()
+  const timeZoneOffset = new Date(props.time).getTimezoneOffset();
+  const abr = moment.tz.zone(timeZone)?.abbr(timeZoneOffset)
+
+  return <div className={`text-nowrap inline-block ${props.className ?? ''}`}>
+            <span>{time +" (" + abr + ")"}</span>
+          </div>
 }

@@ -1,21 +1,6 @@
 import React, { useState } from 'react'
 import { DurationInfo } from './game-list'
-import { GameItem, getSchedule, DayLabel } from './utils/schedule.utils'
-import moment from 'moment-timezone'
-
-const TimeInfo = (props: {time:string, className?:string}) => {
-
-    const day = moment.utc(props.time).local().format('dddd')
-    const time= moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')
-    const timeZone = moment.tz.guess()
-    const timeZoneOffset = new Date(props.time).getTimezoneOffset();
-  
-    const abr = moment.tz.zone(timeZone)?.abbr(timeZoneOffset)
-  
-    return <div className={`text-nowrap inline-block ${props.className ?? ''}`}>
-              <span>{time +" (" + abr + ")"}</span>
-            </div>
-}
+import { GameItem, getSchedule, DayLabel, TimeInfo } from './utils/schedule.utils'
 
 const TableItem = (props: {activeIndex?: number, index?:number, data:GameItem}) => {
 
@@ -61,9 +46,7 @@ const TableList = (props: {list: GameItem[], activeIndex:number}) => {
         className='flex em:flex-col xs:flex-row-reverse py-2 border-b-[2px] border-sky-500' >
           <DayLabel day={group.day} time={group.list[0].time}/>
           <ol className='w-full flex flex-col items-start text-sm' >
-            {
-              group.list.map((item, listIndex) => {
-
+            {group.list.map((item, listIndex) => {
                 index++
                 const isLast = listIndex === group.list.length-1
 
@@ -74,8 +57,7 @@ const TableList = (props: {list: GameItem[], activeIndex:number}) => {
                   className={` w-full p-1 relative flex gap-1 ${isLast ? "" : "border-b-[1px] border-sky-900"}  `}>
                       <TableItem data={item} activeIndex={props.activeIndex} index={index}/>
                   </li>
-                )
-              })}
+            )})}
           </ol>
         </div>)})
     }</div>
