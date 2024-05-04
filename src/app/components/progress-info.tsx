@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useCountdown } from './countdown'
 import moment from 'moment'
 
-interface CountDownItemProps {label?:string, time:string, endLabel?:string}
+export interface CountDownItemProps {label?:string, time:string, endLabel?:string}
 
 function clamp(num:number, min:number) {
     return num >= min ? num : min

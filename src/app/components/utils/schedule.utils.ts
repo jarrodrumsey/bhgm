@@ -1,5 +1,13 @@
 import moment, { Moment } from "moment"
-import { GameItem } from "../game-list"
+
+export type GameItem = {
+  duration: number, 
+  event: string, 
+  console: string, 
+  who: string, 
+  time: string,
+  imageURL: string,
+}
 
 export const AFTER_INDEX_VALUE = Infinity
 export const getStartEndTimeISO = (timeslot:GameItem) : {start_time:string, end_time:string} =>
@@ -61,3 +69,10 @@ export const initActiveIndex = (schedule:GameItem[], currentTime: Moment) => {
     return getActiveIndex(schedule, currentTime)
   }
 }
+
+export const scrollToGame = (index:number) => {
+  const element = document.getElementById(`game-item-${index}`);
+  if(element){
+    element.scrollIntoView({behavior:'smooth', block: 'center', inline: 'center'})
+  }
+};

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/footer";
+import Footer from "./components/global/footer";
+import Main from "./components/global/main";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <head>
@@ -22,7 +24,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/favicon/favicon.png"/>
       </head>
       <body className={`${inter.className} text-white bg-rich-sky`}>
-        {children}
+        <Main>
+          {children}
+        </Main>
         <Footer/>
       </body>
     </html>
