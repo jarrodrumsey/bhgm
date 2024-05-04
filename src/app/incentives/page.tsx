@@ -13,7 +13,7 @@ export default function IncentivePage() {
             Incentive List
           </ScheduleHeader>
           <div className="w-full max-w-[35rem] h-full">
-            <IncentiveList className="" list={INCENTIVES}/> {/** 423 to leave list (423 was just a random number) */}
+            <IncentiveList list={INCENTIVES}/>
           </div>
           <div className="sticky bottom-0 right-0 w-full flex justify-end z-[160]">
             <NavButtonList>
