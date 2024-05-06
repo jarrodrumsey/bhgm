@@ -13,9 +13,9 @@ const LiveContainer = (props : {isLive:boolean, children:ReactNode}) =>
   return(
     <div className={`relative w-full h-full flex flex-col  ${props.isLive ? "border-red-500 border-2 bg-red-500" : "border-none bg-none"}`}>
       {props.children}
-      <div className={` h-[0px] ${props.isLive ? 'h-fit' : ''}  bg-red-500 text-xs`}>
-        {props.isLive && <div className='animate-slide w-full flex items-center'>
-          <span className='animate-slide font-bold'>LIVE NOW</span>
+      <div className={` h-[0px] w-full ${props.isLive ? 'h-fit' : ''}  bg-red-500 text-xs`}>
+        {props.isLive && <div className='animate-slide w-full flex '>
+          <span className='font-bold'>LIVE NOW</span>
         </div>}
       </div>
     </div>

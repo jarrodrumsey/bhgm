@@ -41,8 +41,8 @@ const config: Config = {
           '50%': { transform: 'translateX(10px)' },
         },
         slide: {
-          '0%': { transform: 'translateX(0px)' },
-          '50%': { transform: 'translateX(85%)' },
+          '0%': { transform: 'translateX(0%)' },
+          '50%': { transform: 'translateX(88%)' },
         },
         loading: {
           '0%': { transform: `rotate(0deg)` },
