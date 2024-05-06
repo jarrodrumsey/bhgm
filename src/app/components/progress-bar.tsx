@@ -1,4 +1,4 @@
-//Seems to ensure progression is accurately shown to the user.
+"use client"//Seems to ensure progression is accurately shown to the user.
 import React, { ReactNode } from 'react'
 import { TrophyIcon } from './icons/trophy'
 import { StarIcon } from './icons/star'

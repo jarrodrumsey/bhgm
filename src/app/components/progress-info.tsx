@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import { useCountdown } from './countdown'
 import moment from 'moment'
