@@ -1,4 +1,3 @@
-"use client"
 import React from 'react'
 import ProgressBar from '../progress-bar'
 import dynamic from 'next/dynamic'
