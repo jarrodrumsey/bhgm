@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import ProgressBar from '../progress-bar'
 import dynamic from 'next/dynamic'
@@ -14,7 +15,7 @@ const MainBar = (props:{progressValue?:number, max?:number, countdowns:CountDown
             <ProgressInfoNOSSR countdowns={props.countdowns} />
         </ProgressBarNOSSR>
     </div>
-  )
+  )//
 }
 
 export default MainBar
