@@ -1,9 +1,10 @@
+"use client"
 import React from 'react'
 import ProgressBar from '../progress-bar'
 import dynamic from 'next/dynamic'
 import { CountDownItemProps } from '../progress-info'
 const ProgressInfoNOSSR = dynamic(() => import('../progress-info'), { ssr: false })
- 
+
 const MainBar = (props:{progressValue?:number, max?:number, countdowns:CountDownItemProps[]}) => {
   return (
     <div className="w-full sticky top-0 border-b-[1px] border-slate-800 bg-slate-900/30 z-40  backdrop-blur-lg 
