@@ -1,4 +1,4 @@
-
+"use client"
 import React, { ReactNode } from 'react'
 import { TrophyIcon } from './icons/trophy'
 import { StarIcon } from './icons/star'
