@@ -47,6 +47,15 @@ body {
   .animate-gr {
     animation: spin 0.5s infinite linear infinite;
   }
+
+  .parallelogram {
+    clip-path: polygon(0 0, 60% 0, 40% 100%, 0 300%);
+  }
+
+  .parallelogram-2 {
+    clip-path: polygon(100% 0, 60% 0, 40% 100%, 100% 300%);
+  }
+
 }
 
 /* width */

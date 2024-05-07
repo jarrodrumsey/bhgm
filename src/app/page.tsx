@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image";
 import {Schedule} from "./data";
 import moment, { duration } from "moment";
@@ -9,7 +8,11 @@ import ProgressBar from "./components/progress-bar";
 import TwitchStream from "./components/twitch-stream";
 import { FlagIcon } from "./components/icons/Flag";
 import { XMarkIcon } from "./components/icons/xmark";
+import ProgressInfo from "./components/progress-info";
 
+import dynamic from 'next/dynamic'
+const ProgressInfoNOSSR = dynamic(() => import('./components/progress-info'), { ssr: false })
+ 
 const scrollToGame = (index:number) => {
   const element = document.getElementById(`game-item-${index}`);
   if(element){
@@ -34,31 +37,14 @@ const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<boolean>>
   )
 }
 
-const Button = (props: {children:ReactNode}) => {
+const Button = (props: {children:ReactNode, link:string, target:string}) => {
   return (
-  <button className="p-4 w-full grid place-items-center">
+  <a className="p-4 w-full grid place-items-center cursor-pointer text-white transition-all" href={props.link} target={props.target}>
     {props.children}
-  </button>
+  </a>
   )
 }
 
-const Sidebar = () => {
-
-
-
-  return (
-    <div className="relative h-full w-full flex justify-center">
-        <div className="sticky top-12 bottom-14 left-0 h-screen w-20 flex items-center " >
-          <div className="border-[1px] rounded-md grid place-items-center">
-            <Button>
-              <FlagIcon width={32}/>
-              <label>Twitch</label>
-            </Button>
-          </div>
-        </div>
-    </div>
-  )
-}
 
 const Footer = () => {
   return <div className="w-full h-16 p-2 bg-sky-950 flex flex-col justify-center items-center">
@@ -125,21 +111,36 @@ export default function Home() {
     setActiveIndex(activeIndex+1)
   }
 
+  const getStartEndTimeISO = (timeslot:GameItem) : {start_time:string, end_time:string} =>
+  {
+    return {start_time:timeslot.time, end_time: moment.utc(timeslot.time).add(timeslot.duration, 'hours').toISOString()}
+  }
+
+  const start_countdown = {label:"", time: schedule[0].time, endLabel: " until BHGM X"}
+  const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between  bg-sky-950/50 relative">
       
-      <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400"/>
+      <div className="w-full sticky top-0
+      border-b-[1px] border-slate-800 bg-slate-900/30
+      z-40  backdrop-blur-lg flex  p-4 ">
 
-      <div className="grid grid-cols-3 gap-4 place-items-center p-8">
-        <Sidebar/>
-        <GameList list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
+        <button className="bg-green-400 rounded-md p-2" onClick={() => {incrementIndex()}}>Test</button>
+
+        <ProgressBar value={activeIndex} max={schedule.length-1} color="bg-gradient-to-r from-red-500 to-yellow-500" background="bg-slate-400">
+          <ProgressInfoNOSSR countdowns={[start_countdown, end_countdown]}/>
+        </ProgressBar>
+        
+      </div>
+
+      <div className="p-8 w-full max-w-[35rem]">
+        <GameList className="" list={schedule} activeIndex={activeIndex >= schedule.length ? 423 : activeIndex}/>
       </div>
 
       { showVideo && <EventOverDialog setShowVideo={setShowVideo}/>}
 
-      <div className="absolute h-full self-start">
-        <button className="sticky top-12 left-0 h-30 bg-green-400 p-3 rounded-md self-start m-4" onClick={() => {incrementIndex()}}>CLICK ME</button>
-      </div>
+
 
       <Footer/>
     </main>
