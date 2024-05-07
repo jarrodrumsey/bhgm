@@ -76,9 +76,8 @@ const IncentiveList = (props : {list:IncentiveItem[], className?:string}) => {
           <li 
           className={`h-16 w-full relative flex items-center transition-all cursor-pointer rounded-lg overflow-hidden`}  
           key={index}
-          id={`incentive-item-${index}`}
-          >
-          <IncentiveCard {...item} index={index}/>
+          id={`incentive-item-${index}`}>
+            <IncentiveCard {...item} index={index}/>
           </li>)
       })
     }
