@@ -29,10 +29,15 @@ const config: Config = {
           '0%': { transform: 'translateX(0px)' },
           '50%': { transform: 'translateX(10px)' },
         },
+        slide: {
+          '0%': { transform: 'translateX(0px)' },
+          '50%': { transform: 'translateX(85%)' },
+        }
 
       },
       animation: {
         'shifting' : 'shift 2s linear infinite',
+        'slide': 'slide 10s linear infinite'
       },
     },
   },

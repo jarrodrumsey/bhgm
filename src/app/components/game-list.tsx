@@ -1,10 +1,10 @@
 "use client"
 import moment from 'moment'
-import React from 'react'
-import { ClockIcon } from '../time'
+import React, { ReactNode } from 'react'
+import { ClockIcon } from './icons/time'
 import Image from 'next/image'
-import { ChevronDoubleRightIcon } from '../rightArrow'
-import { PlayIcon } from '../Play'
+import { ChevronDoubleRightIcon } from './icons/rightArrow'
+import { PlayIcon } from './icons/play'
 import { LockIcon } from './lock'
 export type GameItem = {
     duration: number, 
@@ -15,7 +15,33 @@ export type GameItem = {
     imageURL: string,
 }
 
-type GameCardProps = GameItem & {index: number, activeIndex: number}
+type GameCardProps = GameItem & {index: number, activeIndex: number, className?: string}
+
+const LiveButton = () => 
+{
+  return (
+    <a href='https://twitch.tv/burryheightsgaming' target='_blank' className='absolute right-[-72px] '>
+      <div className='h-full bg-red-500 p-2 rounded-md'>
+        <span className='animate-pulse'>LIVE</span>
+      </div>
+    </a>
+  )
+}
+
+const LiveContainer = (props : {isLive:boolean, children:ReactNode}) =>
+{
+  return(
+    <div className={`w-full h-full rounded-md overflow-hidden flex flex-col`}>
+      {props.children}
+      {props.isLive && 
+      <div className={`p-2 py-[0px] bg-red-500 text-sm`}>
+        <div className='animate-slide'>
+          <span className='animate-slide font-bold'>LIVE NOW</span>
+        </div>
+      </div>}
+    </div>
+  )
+}
 
 const GameCard = (props : GameCardProps) =>
 {
@@ -31,11 +57,11 @@ const GameCard = (props : GameCardProps) =>
       `w-full h-full 
       flex flex-row 
       justify-between items-center 
-      rounded-md 
+
       overflow-hidden           
       relative
       group
-      ${ props.index !== props.activeIndex ? "" : ""}
+      ${props.className}
       `
     } 
 
@@ -43,21 +69,24 @@ const GameCard = (props : GameCardProps) =>
     target="_blank">
         <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120}
         className='absolute object-cover h-full w-full '/>
-        <div className={`transition ease-in-out absolute w-full h-full z-1 backdrop-blur-sm group-hover:backdrop-blur-none  ${props.index === props.activeIndex ? 'backdrop-blur-none' : ""}`}></div>
-      <div className={`h-full w-full z-10 flex flex-row justify-between items-centerbackdrop-blur-sm
+        <div className={`transition ease-in-out absolute w-full h-full z-1
+        `}></div>
+  
+      <div className={`h-full w-full z-10 flex flex-col
       ${ props.index !== props.activeIndex ? "bg-gradient-to-r from-cyan-500/70 to-blue-500/70" : ""}
       ${ props.index === props.activeIndex ? "bg-gradient-to-r bg-stone-800/30" : ""}  
       ${ props.index < props.activeIndex ? "grayscale-[0.7]" : ""} `}
       >
-        <div className=" flex flex-col items-start h-full w-fit justify-between text-nowrap p-4">
+        <div className={`flex flex-row justify-between h-full w-full items-start text-nowrap px-4 ${ props.index === props.activeIndex ? "pt-2" : "py-2"}`}>
           <p className="font-bold">{props.event}</p>
-          <p className="text-sm">{props.who}</p>
-        </div>
-        <div className="flex flex-col items-end h-full justify-between text-nowrap p-4">
           <p className="flex flex-row gap-1 items-center justify-end">
             <span>{moment.utc(props.time).local().format('dddd')}</span>
             <span>{moment.utc(props.time).local().format('hh:mm A').replace(/^(?:00:)?0?/, '')}</span>
           </p>
+        </div>
+
+        <div className={`flex flex-row h-full justify-between items-end text-nowrap px-4 ${ props.index === props.activeIndex ? "pb-2" : "py-2"}`}>
+          <p className="text-sm">{props.who}</p>
           <p className="flex flex-row gap-1 items-center justify-end text-sm">
             {props.duration}H 
             <ClockIcon width={20}></ClockIcon>
@@ -68,48 +97,28 @@ const GameCard = (props : GameCardProps) =>
 }
 
 const GameList = (props : {list:GameItem[], activeIndex: number}) => {
-
-    const getScale = (index:number) => {
-    const dif = Math.abs(props.activeIndex - index);
-    const v = ((100+(Math.abs(dif) < 3 ? dif : 0)*5))
   
-    //console.log(v)
-    const f = v/100
-    //console.log(f)
-
-    const scale = ((dif < 3) ? f : 1).toString()
-    const scale_str = "scale-[" + scale + "]";
-
-    //console.log(scale_str);
-
-    return dif < 3 && dif != 0 ? (scale_str) : ""
-  }
-
   return (
-    <ol className="w-full max-w-5xl items-center justify-between flex flex-col gap-3 p-24">
+    <ol className="w-full max-w-5xl items-center justify-between flex flex-col gap-3">
         {
           props.list.map((item, index) => {
+
+            const isLive = index === props.activeIndex;
+            if ( item.time === '9999-12-30T23:59:59.000Z')
+            {
+              return (<></>)
+            }
+
             return (
             <li 
-            className={`h-20 w-[30rem] rounded-md relative flex items-center
-
-            ${index < props.activeIndex ? "bg-sky-500  " : (index === props.activeIndex ? "scale-110" : "")}
-            ${index !== props.activeIndex ? getScale(index) : "" }
-            transition-all cursor-pointer select-none`}  
+            className={`h-20 w-[30rem] rounded-md relative flex items-center transition-all cursor-pointer select-none
+            ${index < props.activeIndex ? "bg-sky-500  " : (isLive ? "scale-110" : "")}`}  
             key={index}
             id={`game-item-${index}`}
-            style={{
-              opacity: index < props.activeIndex ? 
-              1 : 1,
-            }}
             >
-              {index === props.activeIndex ? <a className='absolute left-[-72px] animate-shifting'>
-                <ChevronDoubleRightIcon width={56} color='rgb(253 224 71)'/>
-              </a> : <></>}
-              <GameCard {...item} index={index} activeIndex={props.activeIndex}/>
-              {index === props.activeIndex ? <a className='absolute right-[-72px] animate-pulse'>
-                <PlayIcon width={56} color='rgb(253 224 71)'/>
-              </a> : <></>}
+              <LiveContainer isLive={isLive}>
+                <GameCard {...item} index={index} activeIndex={props.activeIndex}/>
+              </LiveContainer>
             </li>)
             })
         }

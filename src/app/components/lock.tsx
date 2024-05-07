@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { LockClosedIcon } from '../LockClosed'
-import { LockOpenIcon } from '../LockOpen'
+import { LockClosedIcon } from './icons/LockClosed'
+import { LockOpenIcon } from './icons/LockOpen'
 
 export const LockIcon = (isOpen : boolean) => {
 

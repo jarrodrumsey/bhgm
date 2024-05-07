@@ -53,5 +53,6 @@ export const Schedule = [
     {"duration": 1,    "imageURL":"/img/1-preshow.png", "event": "Thrill's Taste Test",         "console": "IRL", "who": "Devon + Friends", "time": "2024-05-07T19:45:00.000Z"},
     {"duration": 1,    "imageURL":"/img/1-preshow.png", "event": "Keep Talking and Nobody Explodes", "console": "PC", "who": "Howell + All Hands", "time": "2024-05-07T20:45:00.000Z"},
     {"duration": 1,    "imageURL":"/img/1-preshow.png", "event": "Heave Ho",                    "console": "Switch", "who": "Rachel + All Hands", "time": "2024-05-07T21:45:00.000Z"},
-    {"duration": 0.75, "imageURL":"/img/1-preshow.png", "event": "Royal Rumble + Finale",       "console": "IRL", "who": "All Hands", "time": "2024-05-07T22:45:00.000Z"}
+    {"duration": 0.75, "imageURL":"/img/1-preshow.png", "event": "Royal Rumble + Finale",       "console": "IRL", "who": "All Hands", "time": "2024-05-07T22:45:00.000Z"},
+
 ];
