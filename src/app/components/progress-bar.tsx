@@ -5,7 +5,6 @@ import { StarIcon } from './icons/star'
 
 
 const ProgressBar = (props: {children?:ReactNode, value:number, max:number, color:string, background: string}) => {
-
   return (
     <div className='w-full flex items-center justify-center gap-2'>
       <div className='w-auto  em:hidden xs:block'>
