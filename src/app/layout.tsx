@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg"/>
         <link rel="icon" type="image/png" href="/favicon/favicon.png"/>
