@@ -14,7 +14,7 @@ export const EventOverDialog = (props: {setShowVideo: Dispatch<SetStateAction<bo
                     <h2 className="text-xl w-full font-bold">Burry Heights Gaming Maraton - 2024</h2>
                     <button onClick={() => props.setShowVideo(show => !show)}><XMarkIcon width={24}/></button> 
                 </div>
-                <p >The marathon is now over. Check us out on social media!</p> 
+                <p >The marathon is now over. Go check us out on social media for highlights!</p> 
               </div>
               <div className="links flex flex-col gap-4">
                 <h3 className="font-semibold">Social Media</h3>
