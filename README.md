@@ -2,7 +2,7 @@
 
 Welcome to the repository for the Burry Heights Gaming Marathon (2024) Schedule Website! This web application was developed and provided to the public to showcase the schedule of events for the fundraising marathon. It allows users to view the different games being played and their corresponding scheduling. Additionally, the website dynamically updates to showcase the current game being played on the stream, ensuring users stay informed in real-time.
 
-Hosted Site:<a href="https://bhgm.netlify.app/" target="_blank">Website</a>
+Hosted Site:<a href="https://bhgm.netlify.app/" target="_blank"> Website </a>
 
 ## Features
 
