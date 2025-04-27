@@ -37,7 +37,6 @@ const CountDownItem = (countdown: CountDownItemProps) =>
     )
 }
 
-
 const ProgressInfo = (props: {countdowns: CountDownItemProps[], currentTime?:string}) => {
 
   const initCountdowns = props.countdowns.reverse().filter(countDown => {

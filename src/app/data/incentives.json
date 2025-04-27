@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Coming Soon",
+        "amount": 1000,
+        "imageURL": "/img/placeholder.png"
+    },
+    {
+        "title": "Coming Soon",
+        "amount": 3000,
+        "imageURL": "/img/placeholder.png"
+    },
+    {
+        "title": "Coming Soon",
+        "amount": 5000,
+        "imageURL": "/img/placeholder.png"
+    },
+    {
+        "title": "Coming Soon",
+        "amount": 7000,
+        "imageURL": "/img/placeholder.png"
+    },
+    {
+        "title": "Coming Soon",
+        "amount": 9000,
+        "imageURL": "/img/placeholder.png"
+    }
+]
