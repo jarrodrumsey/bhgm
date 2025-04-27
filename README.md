@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Burry Heights Gaming Marathon (2025) Schedule Website
+
+Welcome to the repository for the Burry Heights Gaming Marathon (2025) Schedule Website! This web application was developed and provided to the public to showcase the schedule of events for the fundraising marathon. It allows users to view the different games being played and their corresponding scheduling. Additionally, the website dynamically updates to showcase the current game being played on the stream, ensuring users stay informed in real-time.
+
+Hosted Site: <a href="https://bhgm.netlify.app/" target="_blank">BHGM - Website</a>
+
+## Features
+
+- **Interactive Schedule**: Users can easily navigate through the schedule of events for the gaming marathon.
+- **Timezone Conversion**: Event times are displayed in the user's timezone, ensuring clarity and convenience for viewers worldwide.
+- **Real-Time Updates**: The website dynamically updates to display the game currently being played on the stream, providing users with up-to-date information.
+- **User-Friendly Interface**: The interface is designed to be intuitive and easy to use, catering to both experienced gamers and newcomers alike.
+
+## Technologies Used
+
+- **Next.js**: The web application is built using Next.js, a React framework for server-side rendering and static site generation.
+- **React**: The front-end is developed using React, allowing for a fast and responsive user interface.
+- **TypeScript**: TypeScript is used for static typing, enhancing code quality and developer productivity.
+- **Tailwind CSS**: Styling is managed using Tailwind CSS, enabling rapid development and easy customization.
+- **JSON Data**: Schedule data is stored as a JSON object within the project, eliminating the need for external APIs.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy of this project up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository**: Use `git clone` to clone this repository to your local machine.
+2. **Install Dependencies**: Navigate into the project directory and run `npm install` to install all required dependencies.
+3. **Start the Development Server**: Once the dependencies are installed, start the development server using `npm run dev`.
+4. **View the Website**: Open your browser and navigate to `http://localhost:3000` to view the website locally.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Fork the repository and create your branch from `main`.
+2. Make your changes, ensuring to adhere to the existing code style and conventions.
+3. Test your changes thoroughly.
+4. Create a pull request with a clear description of your changes and why they are necessary.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the code for personal or commercial purposes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for your interest in the Burry Heights Gaming Marathon (2024) Schedule Website! If you have any questions or suggestions, feel free to open an issue or contact the maintainers. Happy gaming! 🎮🚀
