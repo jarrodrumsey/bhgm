@@ -1,7 +1,7 @@
 "use client"
 import React, { ReactNode, useCallback, useEffect, useState, createContext } from 'react'
 import MainBar from './main-bar'
-import { Schedule } from '../../data'
+import { Schedule, BRANDING } from '../../data'
 import { GameItem, getStartEndTimeISO, initActiveIndex } from '../utils/schedule.utils'
 import moment, { Moment } from 'moment-timezone'
 import { ActiveIndexContext } from '../providers/active-index-context'
@@ -54,7 +54,7 @@ const Main = (props:{children:ReactNode}) => {
   },[schedule, activeIndex, setActiveIndex, incrementDay]);
 
   const start_countdown = {label:"BHGM will begin in ", time: schedule[0].time, endLabel: ""}
-  const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: " remaining of BHGM X"}
+  const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: ` remaining of ${BRANDING.title_short}`}
 
   return (
     <ActiveIndexContext.Provider value={activeIndex}>
