@@ -1,6 +1,3 @@
-
-import scheduleData from './data/schedule.json';
-import incentiveData from './data/incentives.json';
 import data from './data/data.json';
 
 export interface ScheduleItem {
