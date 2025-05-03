@@ -1,27 +1,22 @@
 [
     {
-        "title": "Coming Soon",
-        "amount": 1000,
+        "title": "Post It Notes (Every $10)",
+        "amount": 10,
         "imageURL": "/img/placeholder.png"
     },
     {
-        "title": "Coming Soon",
-        "amount": 3000,
+        "title": "Ice Bucket Challenge",
+        "amount": 2500,
         "imageURL": "/img/placeholder.png"
     },
     {
-        "title": "Coming Soon",
-        "amount": 5000,
+        "title": "100 Hot Dogs",
+        "amount": 4753,
         "imageURL": "/img/placeholder.png"
     },
     {
-        "title": "Coming Soon",
-        "amount": 7000,
-        "imageURL": "/img/placeholder.png"
-    },
-    {
-        "title": "Coming Soon",
-        "amount": 9000,
+        "title": "Mystery 8k",
+        "amount": 8000,
         "imageURL": "/img/placeholder.png"
     }
 ]
