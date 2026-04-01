@@ -17,12 +17,12 @@ function toImageSlug(title: string): string {
     .replace(/\s+/g, '-')
 }
 
-const GameImage = ({ imageURL, event, className }: { imageURL: string, event: string, className?: string }) => {
+const GameImage = ({ imageURL, event, gameTitle, className }: { imageURL: string, event: string, gameTitle?: string, className?: string }) => {
   const candidates = useMemo(() => {
     if (imageURL !== PLACEHOLDER) return [imageURL]
-    const slug = toImageSlug(event)
+    const slug = toImageSlug(gameTitle ?? event)
     return [...IMAGE_EXTENSIONS.map(ext => `/img/${slug}${ext}`), PLACEHOLDER]
-  }, [imageURL, event])
+  }, [imageURL, event, gameTitle])
 
   const [idx, setIdx] = useState(0)
   const src = candidates[Math.min(idx, candidates.length - 1)]
@@ -91,7 +91,7 @@ const GameCard = (props : GameCardProps) =>
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-        <GameImage imageURL={props.imageURL} event={props.event}
+        <GameImage imageURL={props.imageURL} event={props.event} gameTitle={props.gameTitle}
           className={`absolute object-cover h-full w-full
           ${ eventIsOver ? " grayscale-[1] brightness-50" : ""}
           ${ !isLive ? " opacity-50" : ""} `}/>

@@ -46,6 +46,7 @@
         "duration": 1.5,
         "imageURL": "/img/placeholder.png",
         "event": "Wii Sports Olympics",
+        "gameTitle": "Wii Sports",
         "console": "Switch",
         "who": "Smackdown + All Hands",
         "time": "2026-05-02T01:00:00.000Z"
@@ -54,6 +55,7 @@
         "duration": 1.5,
         "imageURL": "/img/placeholder.png",
         "event": "Tomodachi Life: Living the Dream",
+        "gameTitle": "Tomodachi Life",
         "console": "Switch",
         "who": "Peter Pan",
         "time": "2026-05-02T02:30:00.000Z"
@@ -62,6 +64,7 @@
         "duration": 1.25,
         "imageURL": "/img/placeholder.png",
         "event": "Little Big Planet Tournament",
+        "gameTitle": "LittleBigPlanet",
         "console": "PS3",
         "who": "Gambino & All Hands",
         "time": "2026-05-02T04:00:00.000Z"
@@ -118,6 +121,7 @@
         "duration": 1.5,
         "imageURL": "/img/placeholder.png",
         "event": "Old School Runescape Firecape",
+        "gameTitle": "Old School RuneScape",
         "console": "PC",
         "who": "Top Dog",
         "time": "2026-05-02T13:15:00.000Z"
@@ -134,6 +138,7 @@
         "duration": 3.5,
         "imageURL": "/img/placeholder.png",
         "event": "Sonic Adventure 2",
+        "gameTitle": "Sonic Adventure 2",
         "console": "PC",
         "who": "Group Speedrun",
         "time": "2026-05-02T16:00:00.000Z"
@@ -230,6 +235,7 @@
         "duration": 2.0,
         "imageURL": "/img/placeholder.png",
         "event": "LittleBigPlanet",
+        "gameTitle": "LittleBigPlanet",
         "console": "PS3",
         "who": "Smackdown, Lettuce, HoopsNL, Gambino",
         "time": "2026-05-03T12:15:00.000Z"
@@ -262,6 +268,7 @@
         "duration": 2.0,
         "imageURL": "/img/placeholder.png",
         "event": "Arctic Ace ESports (Smash Ultimate)",
+        "gameTitle": "Super Smash Bros. Ultimate",
         "console": "Switch",
         "who": "All Hands",
         "time": "2026-05-03T20:00:00.000Z"
@@ -270,6 +277,7 @@
         "duration": 1.75,
         "imageURL": "/img/placeholder.png",
         "event": "WarioWorld",
+        "gameTitle": "Wario World",
         "console": "Gamecube",
         "who": "Squiggles",
         "time": "2026-05-03T22:00:00.000Z"

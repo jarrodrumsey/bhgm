@@ -1,10 +1,11 @@
 import moment, { Moment } from "moment"
 
 export type GameItem = {
-  duration: number, 
-  event: string, 
-  console: string, 
-  who: string, 
+  duration: number,
+  event: string,
+  gameTitle?: string,
+  console: string,
+  who: string,
   time: string,
   imageURL: string,
 }
