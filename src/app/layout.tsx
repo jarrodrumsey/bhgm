@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/global/footer";
 import Main from "./components/global/main";
+import { BRANDING } from "./data";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BHGM - Schedule",
-  description: "Schedule for the 2024 Burry Heights Gaming Marathon",
+  description: `Schedule for the ${BRANDING.title}`,
 };
 
 export default function RootLayout({
