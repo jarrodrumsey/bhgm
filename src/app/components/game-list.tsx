@@ -6,6 +6,25 @@ import Image from 'next/image'
 import { DoneIcon } from './icons/done';
 import { GameItem, getSchedule, DayLabel, TimeInfo } from './utils/schedule.utils';
 
+const PLACEHOLDER = '/img/placeholder.png'
+
+const GameImage = ({ imageURL, event, className }: { imageURL: string, event: string, className?: string }) => {
+  const [src, setSrc] = useState(imageURL)
+
+  return (
+    <Image
+      src={src}
+      alt={`Thumbnail image for ${event}`}
+      width={730}
+      height={120}
+      placeholder='blur'
+      blurDataURL={imageURL}
+      onError={() => { if (src !== PLACEHOLDER) setSrc(PLACEHOLDER) }}
+      className={className}
+    />
+  )
+}
+
 type GameCardProps = GameItem & {index: number, activeIndex: number, className?: string}
 
 const LiveContainer = (props : {isLive:boolean, children:ReactNode}) =>
@@ -56,7 +75,7 @@ const GameCard = (props : GameCardProps) =>
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-        <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120} placeholder='blur' blurDataURL={props.imageURL}
+        <GameImage imageURL={props.imageURL} event={props.event}
           className={`absolute object-cover h-full w-full
           ${ eventIsOver ? " grayscale-[1] brightness-50" : ""}
           ${ !isLive ? " opacity-50" : ""} `}/>
