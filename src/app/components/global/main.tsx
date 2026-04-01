@@ -53,12 +53,25 @@ const Main = (props:{children:ReactNode}) => {
     return () => clearInterval(interval);
   },[schedule, activeIndex, setActiveIndex, incrementDay]);
 
+  const marathonStart = schedule[0].time
+  const marathonEnd = getStartEndTimeISO(schedule[schedule.length-1]).end_time
+  const totalDuration = moment.utc(marathonEnd).diff(moment.utc(marathonStart))
+
+  const [progressValue, setProgressValue] = useState(Math.max(0, moment().diff(moment.utc(marathonStart))))
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgressValue(Math.max(0, moment().diff(moment.utc(marathonStart))))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [marathonStart])
+
   const start_countdown = {label:"BHGM will begin in ", time: schedule[0].time, endLabel: ""}
-  const   end_countdown = {label:"", time: getStartEndTimeISO(schedule[schedule.length-1]).end_time, endLabel: ` remaining of ${BRANDING.title_short}`}
+  const   end_countdown = {label:"", time: marathonEnd, endLabel: ` remaining of ${BRANDING.title_short}`}
 
   return (
     <ActiveIndexContext.Provider value={activeIndex}>
-        <MainBar countdowns={[start_countdown, end_countdown]} progressValue={activeIndex} max={schedule.length-1}></MainBar>
+        <MainBar countdowns={[start_countdown, end_countdown]} progressValue={progressValue} max={totalDuration}></MainBar>
         {props.children}
     </ActiveIndexContext.Provider>
   )
