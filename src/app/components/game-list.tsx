@@ -1,10 +1,45 @@
 "use client"
 import moment from 'moment-timezone';
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState, useMemo } from 'react'
 import { ClockIcon } from './icons/time'
 import Image from 'next/image'
 import { DoneIcon } from './icons/done';
 import { GameItem, getSchedule, DayLabel, TimeInfo } from './utils/schedule.utils';
+
+const PLACEHOLDER = '/img/placeholder.png'
+const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg']
+
+function toImageSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+}
+
+const GameImage = ({ imageURL, event, className }: { imageURL: string, event: string, className?: string }) => {
+  const candidates = useMemo(() => {
+    if (imageURL !== PLACEHOLDER) return [imageURL]
+    const slug = toImageSlug(event)
+    return [...IMAGE_EXTENSIONS.map(ext => `/img/${slug}${ext}`), PLACEHOLDER]
+  }, [imageURL, event])
+
+  const [idx, setIdx] = useState(0)
+  const src = candidates[Math.min(idx, candidates.length - 1)]
+
+  return (
+    <Image
+      src={src}
+      alt={`Thumbnail image for ${event}`}
+      width={730}
+      height={120}
+      placeholder={imageURL !== PLACEHOLDER ? 'blur' : 'empty'}
+      blurDataURL={imageURL !== PLACEHOLDER ? imageURL : undefined}
+      onError={() => setIdx((i: number) => Math.min(i + 1, candidates.length - 1))}
+      className={className}
+    />
+  )
+}
 
 type GameCardProps = GameItem & {index: number, activeIndex: number, className?: string}
 
@@ -56,7 +91,7 @@ const GameCard = (props : GameCardProps) =>
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-        <Image src={props.imageURL} alt={`Thumnail image for ${props.event}`} width={730} height={120} placeholder='blur' blurDataURL={props.imageURL}
+        <GameImage imageURL={props.imageURL} event={props.event}
           className={`absolute object-cover h-full w-full
           ${ eventIsOver ? " grayscale-[1] brightness-50" : ""}
           ${ !isLive ? " opacity-50" : ""} `}/>
