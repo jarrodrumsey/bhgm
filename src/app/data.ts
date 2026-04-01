@@ -4,7 +4,6 @@ export interface ScheduleItem {
   duration: number;
   imageURL: string;
   event: string;
-  gameTitle?: string; // official game title for image lookup, if different from event name
   console: string;
   who: string;
   time: string; // UTC ISO-8601

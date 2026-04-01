@@ -1,31 +1,15 @@
 "use client"
 import moment from 'moment-timezone';
-import React, { ReactNode, useState, useMemo } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { ClockIcon } from './icons/time'
 import Image from 'next/image'
 import { DoneIcon } from './icons/done';
 import { GameItem, getSchedule, DayLabel, TimeInfo } from './utils/schedule.utils';
 
 const PLACEHOLDER = '/img/placeholder.png'
-const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg']
 
-function toImageSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-}
-
-const GameImage = ({ imageURL, event, gameTitle, className }: { imageURL: string, event: string, gameTitle?: string, className?: string }) => {
-  const candidates = useMemo(() => {
-    if (imageURL !== PLACEHOLDER) return [imageURL]
-    const slug = toImageSlug(gameTitle ?? event)
-    return [...IMAGE_EXTENSIONS.map(ext => `/img/${slug}${ext}`), PLACEHOLDER]
-  }, [imageURL, event, gameTitle])
-
-  const [idx, setIdx] = useState(0)
-  const src = candidates[Math.min(idx, candidates.length - 1)]
+const GameImage = ({ imageURL, event, className }: { imageURL: string, event: string, className?: string }) => {
+  const [src, setSrc] = useState(imageURL)
 
   return (
     <Image
@@ -33,9 +17,9 @@ const GameImage = ({ imageURL, event, gameTitle, className }: { imageURL: string
       alt={`Thumbnail image for ${event}`}
       width={730}
       height={120}
-      placeholder={imageURL !== PLACEHOLDER ? 'blur' : 'empty'}
-      blurDataURL={imageURL !== PLACEHOLDER ? imageURL : undefined}
-      onError={() => setIdx((i: number) => Math.min(i + 1, candidates.length - 1))}
+      placeholder='blur'
+      blurDataURL={imageURL}
+      onError={() => { if (src !== PLACEHOLDER) setSrc(PLACEHOLDER) }}
       className={className}
     />
   )
@@ -91,7 +75,7 @@ const GameCard = (props : GameCardProps) =>
 
     href="https://www.twitch.tv/burryheightsgaming"
     target="_blank">
-        <GameImage imageURL={props.imageURL} event={props.event} gameTitle={props.gameTitle}
+        <GameImage imageURL={props.imageURL} event={props.event}
           className={`absolute object-cover h-full w-full
           ${ eventIsOver ? " grayscale-[1] brightness-50" : ""}
           ${ !isLive ? " opacity-50" : ""} `}/>
