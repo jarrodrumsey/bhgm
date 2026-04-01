@@ -1,382 +1,382 @@
 {
-"branding": {
-  "title": "Burry Heights Gaming Marathon XII",
-  "title_short": "BHGM XII"
-},
-"incentives": [
-    {
-        "title": "Post It Notes (Every $10)",
-        "amount": 10,
-        "imageURL": "/img/placeholder.png"
+    "branding": {
+        "title": "Burry Heights Gaming Marathon XII",
+        "title_short": "BHGM XII"
     },
-    {
-        "title": "Ice Bucket Challenge",
-        "amount": 2500,
-        "imageURL": "/img/placeholder.png"
-    },
-    {
-        "title": "100 Hot Dogs",
-        "amount": 4753,
-        "imageURL": "/img/placeholder.png"
-    },
-    {
-        "title": "Mystery 8k",
-        "amount": 8000,
-        "imageURL": "/img/placeholder.png"
-    }
-],
-"schedule": [
-    {
-        "duration": 1.5,
-        "imageURL": "/img/spicy-mario-kart.png",
-        "event": "Mario Kart World",
-        "console": "Switch 2",
-        "who": "Copilot & All Hands",
-        "time": "2026-05-01T21:30:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/hollow-knight.png",
-        "event": "Hollow Knight Silksong",
-        "console": "Switch 2",
-        "who": "Copilot",
-        "time": "2026-05-01T23:00:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/wii-sports.png",
-        "event": "Wii Sports Olympics",
-        "console": "Switch",
-        "who": "Smackdown + All Hands",
-        "time": "2026-05-02T01:00:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/tomodachi-life.png",
-        "event": "Tomodachi Life: Living the Dream",
-        "console": "Switch",
-        "who": "Peter Pan",
-        "time": "2026-05-02T02:30:00.000Z"
-    },
-    {
-        "duration": 1.25,
-        "imageURL": "/img/little-big-planet.png",
-        "event": "Little Big Planet Tournament",
-        "console": "PS3",
-        "who": "Gambino & All Hands",
-        "time": "2026-05-02T04:00:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/baba-is-you.png",
-        "event": "Baba Is You",
-        "console": "Switch",
-        "who": "Bestea",
-        "time": "2026-05-02T05:15:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/kirby-to-dreamland-deluxe.png",
-        "event": "Kirby's Return to Dream Land Deluxe",
-        "console": "Switch",
-        "who": "Juzucci + Friends",
-        "time": "2026-05-02T06:15:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/20-marioparty.png",
-        "event": "Mario Party",
-        "console": "Switch 2",
-        "who": "Copilot + 3 Friends",
-        "time": "2026-05-02T07:15:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/minecraft.png",
-        "event": "Minecraft",
-        "console": "PC",
-        "who": "Webster",
-        "time": "2026-05-02T08:45:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/21-eldenring.png",
-        "event": "Elden Ring",
-        "console": "PS5",
-        "who": "Hiker",
-        "time": "2026-05-02T09:45:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/1080-snowboarding.png",
-        "event": "1080 Snowboarding",
-        "console": "N64",
-        "who": "Beefus, Porkus",
-        "time": "2026-05-02T11:45:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/old-school-runescape.png",
-        "event": "Old School Runescape Firecape",
-        "console": "PC",
-        "who": "Top Dog",
-        "time": "2026-05-02T13:15:00.000Z"
-    },
-    {
-        "duration": 1.25,
-        "imageURL": "/img/rainbow-six-siege.png",
-        "event": "Rainbow Six Siege",
-        "console": "PC",
-        "who": "Thermostat",
-        "time": "2026-05-02T14:45:00.000Z"
-    },
-    {
-        "duration": 3.5,
-        "imageURL": "/img/sonic-adventure-2.png",
-        "event": "Sonic Adventure 2",
-        "console": "PC",
-        "who": "Group Speedrun",
-        "time": "2026-05-02T16:00:00.000Z"
-    },
-    {
-        "duration": 0.75,
-        "imageURL": "/img/big-brain-academy-wii-degree.png",
-        "event": "Big Brain Academy: Wii Degree",
-        "console": "Wii",
-        "who": "Copilot + All Hands",
-        "time": "2026-05-02T19:30:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/mario-maker-solos.png",
-        "event": "Mario Maker Solos",
-        "console": "Switch",
-        "who": "Squiggles & All Hands",
-        "time": "2026-05-02T20:15:00.000Z"
-    },
-    {
-        "duration": 2.5,
-        "imageURL": "/img/26-astrosplay.png",
-        "event": "Astro Bot",
-        "console": "PS5",
-        "who": "Lettuce",
-        "time": "2026-05-02T21:45:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/pro-am-mario-tennis-competition.png",
-        "event": "Mario Tennis ProAm Competition",
-        "console": "Switch",
-        "who": "Mikpick + All Hands",
-        "time": "2026-05-03T00:15:00.000Z"
-    },
-    {
-        "duration": 0.25,
-        "imageURL": "/img/snail-bob-2.png",
-        "event": "Snail Bob 2",
-        "console": "PC",
-        "who": "Baked Potato",
-        "time": "2026-05-03T01:45:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/ultimate-chicken-horse-game.png",
-        "event": "Ultimate Chicken Horse",
-        "console": "Switch 2",
-        "who": "Copilot + All Hands",
-        "time": "2026-05-03T02:00:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/beat-saber.png",
-        "event": "Beat Saber",
-        "console": "PC",
-        "who": "Moonlight",
-        "time": "2026-05-03T03:30:00.000Z"
-    },
-    {
-        "duration": 2.5,
-        "imageURL": "/img/cod-zombies.png",
-        "event": "Call of Duty Zombies",
-        "console": "PC",
-        "who": "Smackdown",
-        "time": "2026-05-03T05:00:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/switch-sports.png",
-        "event": "Switch Sports",
-        "console": "Switch",
-        "who": "Windsock + All Hands",
-        "time": "2026-05-03T07:30:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/rhythm-heaven.png",
-        "event": "Rhythm Heaven Fever",
-        "console": "Wii",
-        "who": "Copilot, Bestea",
-        "time": "2026-05-03T08:30:00.000Z"
-    },
-    {
-        "duration": 2.75,
-        "imageURL": "/img/37-oot.png",
-        "event": "Majora's Mask Randomizer",
-        "console": "PC",
-        "who": "Majora",
-        "time": "2026-05-03T09:30:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/little-big-planet.png",
-        "event": "Little Big Planet",
-        "console": "PS3",
-        "who": "Smackdown, Lettuce, HoopsNL, Gambino",
-        "time": "2026-05-03T12:15:00.000Z"
-    },
-    {
-        "duration": 1.25,
-        "imageURL": "/img/rocket-league.png",
-        "event": "Rocket League",
-        "console": "PS4",
-        "who": "Pokey + Volunteers",
-        "time": "2026-05-03T14:15:00.000Z"
-    },
-    {
-        "duration": 3.5,
-        "imageURL": "/img/banjo-kazooie.png",
-        "event": "Banjo-Kazooie",
-        "console": "PC",
-        "who": "Mikpick",
-        "time": "2026-05-03T15:30:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/everybody-1-2-switch.png",
-        "event": "Everybody 1-2 Switch!",
-        "console": "Switch",
-        "who": "Everyone",
-        "time": "2026-05-03T19:00:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/super-smash-bros-ultimate.png",
-        "event": "Arctic Ace ESports (Smash Ultimate)",
-        "console": "Switch",
-        "who": "All Hands",
-        "time": "2026-05-03T20:00:00.000Z"
-    },
-    {
-        "duration": 1.75,
-        "imageURL": "/img/wario-world.png",
-        "event": "Wario World",
-        "console": "Gamecube",
-        "who": "Squiggles",
-        "time": "2026-05-03T22:00:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/blood-on-the-clocktower.png",
-        "event": "Blood on the Clocktower",
-        "console": "PC",
-        "who": "Mik Pickle & All Hands",
-        "time": "2026-05-03T23:45:00.000Z"
-    },
-    {
-        "duration": 3.5,
-        "imageURL": "/img/resident-evil-4.png",
-        "event": "Resident Evil 4",
-        "console": "PS4",
-        "who": "Pokey",
-        "time": "2026-05-04T01:45:00.000Z"
-    },
-    {
-        "duration": 0.75,
-        "imageURL": "/img/dog-gone-golfing.png",
-        "event": "Dog Gone Golfing",
-        "console": "Switch",
-        "who": "Windsock + All Hands",
-        "time": "2026-05-04T05:15:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/garbage-games-ii.png",
-        "event": "Garbage Games",
-        "console": "?",
-        "who": "Squiggles & All Hands",
-        "time": "2026-05-04T06:00:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/skylanders.png",
-        "event": "Skylanders",
-        "console": "Wii",
-        "who": "Copilot + Hiker",
-        "time": "2026-05-04T08:00:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/spore.png",
-        "event": "Spore",
-        "console": "PC",
-        "who": "Goose",
-        "time": "2026-05-04T09:30:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/30-bindingofisaac.png",
-        "event": "Binding of Isaac",
-        "console": "PC",
-        "who": "Top Dog",
-        "time": "2026-05-04T10:30:00.000Z"
-    },
-    {
-        "duration": 1.25,
-        "imageURL": "/img/five-nights-at-freddies.png",
-        "event": "Five Nights at Freddy's 3",
-        "console": "PC",
-        "who": "Gecko",
-        "time": "2026-05-04T12:00:00.000Z"
-    },
-    {
-        "duration": 0.75,
-        "imageURL": "/img/thrills-taste-test.png",
-        "event": "Thrill's Taste Test",
-        "console": "IRL",
-        "who": "Squiggles + Volunteers",
-        "time": "2026-05-04T13:15:00.000Z"
-    },
-    {
-        "duration": 2.0,
-        "imageURL": "/img/super-metroid.png",
-        "event": "Super Metroid",
-        "console": "SNES",
-        "who": "Top Dog",
-        "time": "2026-05-04T14:00:00.000Z"
-    },
-    {
-        "duration": 1.5,
-        "imageURL": "/img/ware.png",
-        "event": "WarioWare Smooth Moves",
-        "console": "Wii",
-        "who": "Squiggles & All Hands",
-        "time": "2026-05-04T16:00:00.000Z"
-    },
-    {
-        "duration": 3.0,
-        "imageURL": "/img/29-gameolympics.png",
-        "event": "Gaming Olympics II",
-        "console": "Switch",
-        "who": "Windsock + All Hands",
-        "time": "2026-05-04T17:30:00.000Z"
-    },
-    {
-        "duration": 1.0,
-        "imageURL": "/img/rumble-finale.png",
-        "event": "Royal Rumble + Finale",
-        "console": "Xbox",
-        "who": "Everyone",
-        "time": "2026-05-04T20:30:00.000Z"
-    }
- ]
+    "incentives": [
+        {
+            "title": "Post It Notes (Every $10)",
+            "amount": 10,
+            "imageURL": "/img/placeholder.png"
+        },
+        {
+            "title": "Ice Bucket Challenge",
+            "amount": 2500,
+            "imageURL": "/img/placeholder.png"
+        },
+        {
+            "title": "100 Hot Dogs",
+            "amount": 4753,
+            "imageURL": "/img/placeholder.png"
+        },
+        {
+            "title": "Mystery 8k",
+            "amount": 8000,
+            "imageURL": "/img/placeholder.png"
+        }
+    ],
+    "schedule": [
+        {
+            "duration": 1.5,
+            "imageURL": "/img/spicy-mario-kart.png",
+            "event": "Mario Kart World",
+            "console": "Switch 2",
+            "who": "Everyone",
+            "time": "2026-05-01T21:30:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/hollow-knight.png",
+            "event": "Hollow Knight Silksong",
+            "console": "Switch 2",
+            "who": "Copilot",
+            "time": "2026-05-01T23:00:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/wii-sports.png",
+            "event": "Wii Sports Olympics",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-02T01:00:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/tomodachi-life.png",
+            "event": "Tomodachi Life: Living the Dream",
+            "console": "Switch",
+            "who": "Peter Pan",
+            "time": "2026-05-02T02:30:00.000Z"
+        },
+        {
+            "duration": 1.25,
+            "imageURL": "/img/little-big-planet.png",
+            "event": "Little Big Planet Tournament",
+            "console": "PS3",
+            "who": "Everyone",
+            "time": "2026-05-02T04:00:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/baba-is-you.png",
+            "event": "Baba Is You",
+            "console": "Switch",
+            "who": "Bestea",
+            "time": "2026-05-02T05:15:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/kirby-to-dreamland-deluxe.png",
+            "event": "Kirby's Return to Dream Land Deluxe",
+            "console": "Switch",
+            "who": "Juzucci + Friends",
+            "time": "2026-05-02T06:15:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/20-marioparty.png",
+            "event": "Mario Party",
+            "console": "Switch 2",
+            "who": "Copilot + 3 Friends",
+            "time": "2026-05-02T07:15:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/minecraft.png",
+            "event": "Minecraft",
+            "console": "PC",
+            "who": "Webster",
+            "time": "2026-05-02T08:45:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/21-eldenring.png",
+            "event": "Elden Ring",
+            "console": "PS5",
+            "who": "Hiker",
+            "time": "2026-05-02T09:45:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/1080-snowboarding.png",
+            "event": "1080 Snowboarding",
+            "console": "N64",
+            "who": "Beefus, Porkus",
+            "time": "2026-05-02T11:45:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/old-school-runescape.png",
+            "event": "Old School Runescape Firecape",
+            "console": "PC",
+            "who": "Top Dog",
+            "time": "2026-05-02T13:15:00.000Z"
+        },
+        {
+            "duration": 1.25,
+            "imageURL": "/img/rainbow-six-siege.png",
+            "event": "Rainbow Six Siege",
+            "console": "PC",
+            "who": "Thermostat",
+            "time": "2026-05-02T14:45:00.000Z"
+        },
+        {
+            "duration": 3.5,
+            "imageURL": "/img/sonic-adventure-2.png",
+            "event": "Sonic Adventure 2",
+            "console": "PC",
+            "who": "Group Speedrun",
+            "time": "2026-05-02T16:00:00.000Z"
+        },
+        {
+            "duration": 0.75,
+            "imageURL": "/img/big-brain-academy-wii-degree.png",
+            "event": "Big Brain Academy: Wii Degree",
+            "console": "Wii",
+            "who": "Everyone",
+            "time": "2026-05-02T19:30:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/mario-maker-solos.png",
+            "event": "Mario Maker Solos",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-02T20:15:00.000Z"
+        },
+        {
+            "duration": 2.5,
+            "imageURL": "/img/26-astrosplay.png",
+            "event": "Astro Bot",
+            "console": "PS5",
+            "who": "Lettuce",
+            "time": "2026-05-02T21:45:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/pro-am-mario-tennis-competition.png",
+            "event": "Mario Tennis ProAm Competition",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-03T00:15:00.000Z"
+        },
+        {
+            "duration": 0.25,
+            "imageURL": "/img/snail-bob-2.png",
+            "event": "Snail Bob 2",
+            "console": "PC",
+            "who": "Baked Potato",
+            "time": "2026-05-03T01:45:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/ultimate-chicken-horse-game.png",
+            "event": "Ultimate Chicken Horse",
+            "console": "Switch 2",
+            "who": "Everyone",
+            "time": "2026-05-03T02:00:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/beat-saber.png",
+            "event": "Beat Saber",
+            "console": "PC",
+            "who": "Moonlight",
+            "time": "2026-05-03T03:30:00.000Z"
+        },
+        {
+            "duration": 2.5,
+            "imageURL": "/img/cod-zombies.png",
+            "event": "Call of Duty Zombies",
+            "console": "PC",
+            "who": "Smackdown",
+            "time": "2026-05-03T05:00:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/switch-sports.png",
+            "event": "Switch Sports",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-03T07:30:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/rhythm-heaven.png",
+            "event": "Rhythm Heaven Fever",
+            "console": "Wii",
+            "who": "Copilot, Bestea",
+            "time": "2026-05-03T08:30:00.000Z"
+        },
+        {
+            "duration": 2.75,
+            "imageURL": "/img/37-oot.png",
+            "event": "Majora's Mask Randomizer",
+            "console": "PC",
+            "who": "Majora",
+            "time": "2026-05-03T09:30:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/little-big-planet.png",
+            "event": "Little Big Planet",
+            "console": "PS3",
+            "who": "Smackdown, Lettuce, HoopsNL, Gambino",
+            "time": "2026-05-03T12:15:00.000Z"
+        },
+        {
+            "duration": 1.25,
+            "imageURL": "/img/rocket-league.png",
+            "event": "Rocket League",
+            "console": "PS4",
+            "who": "Pokey + Volunteers",
+            "time": "2026-05-03T14:15:00.000Z"
+        },
+        {
+            "duration": 3.5,
+            "imageURL": "/img/banjo-kazooie.png",
+            "event": "Banjo-Kazooie",
+            "console": "PC",
+            "who": "Mikpick",
+            "time": "2026-05-03T15:30:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/everybody-1-2-switch.png",
+            "event": "Everybody 1-2 Switch!",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-03T19:00:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/super-smash-bros-ultimate.png",
+            "event": "Arctic Ace ESports (Smash Ultimate)",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-03T20:00:00.000Z"
+        },
+        {
+            "duration": 1.75,
+            "imageURL": "/img/wario-world.png",
+            "event": "Wario World",
+            "console": "Gamecube",
+            "who": "Squiggles",
+            "time": "2026-05-03T22:00:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/blood-on-the-clocktower.png",
+            "event": "Blood on the Clocktower",
+            "console": "PC",
+            "who": "Everyone",
+            "time": "2026-05-03T23:45:00.000Z"
+        },
+        {
+            "duration": 3.5,
+            "imageURL": "/img/resident-evil-4.png",
+            "event": "Resident Evil 4",
+            "console": "PS4",
+            "who": "Pokey",
+            "time": "2026-05-04T01:45:00.000Z"
+        },
+        {
+            "duration": 0.75,
+            "imageURL": "/img/dog-gone-golfing.png",
+            "event": "Dog Gone Golfing",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-04T05:15:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/garbage-games-ii.png",
+            "event": "Garbage Games",
+            "console": "?",
+            "who": "Everyone",
+            "time": "2026-05-04T06:00:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/skylanders.png",
+            "event": "Skylanders",
+            "console": "Wii",
+            "who": "Copilot + Hiker",
+            "time": "2026-05-04T08:00:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/spore.png",
+            "event": "Spore",
+            "console": "PC",
+            "who": "Goose",
+            "time": "2026-05-04T09:30:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/30-bindingofisaac.png",
+            "event": "Binding of Isaac",
+            "console": "PC",
+            "who": "Top Dog",
+            "time": "2026-05-04T10:30:00.000Z"
+        },
+        {
+            "duration": 1.25,
+            "imageURL": "/img/five-nights-at-freddies.png",
+            "event": "Five Nights at Freddy's 3",
+            "console": "PC",
+            "who": "Gecko",
+            "time": "2026-05-04T12:00:00.000Z"
+        },
+        {
+            "duration": 0.75,
+            "imageURL": "/img/thrills-taste-test.png",
+            "event": "Thrill's Taste Test",
+            "console": "IRL",
+            "who": "Squiggles + Volunteers",
+            "time": "2026-05-04T13:15:00.000Z"
+        },
+        {
+            "duration": 2.0,
+            "imageURL": "/img/super-metroid.png",
+            "event": "Super Metroid",
+            "console": "SNES",
+            "who": "Top Dog",
+            "time": "2026-05-04T14:00:00.000Z"
+        },
+        {
+            "duration": 1.5,
+            "imageURL": "/img/ware.png",
+            "event": "WarioWare Smooth Moves",
+            "console": "Wii",
+            "who": "Everyone",
+            "time": "2026-05-04T16:00:00.000Z"
+        },
+        {
+            "duration": 3.0,
+            "imageURL": "/img/29-gameolympics.png",
+            "event": "Gaming Olympics II",
+            "console": "Switch",
+            "who": "Everyone",
+            "time": "2026-05-04T17:30:00.000Z"
+        },
+        {
+            "duration": 1.0,
+            "imageURL": "/img/rumble-finale.png",
+            "event": "Royal Rumble + Finale",
+            "console": "Xbox",
+            "who": "Everyone",
+            "time": "2026-05-04T20:30:00.000Z"
+        }
+    ]
 }
