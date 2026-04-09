@@ -36,7 +36,7 @@
         },
         {
             "duration": 2.0,
-            "imageURL": "/img/hollow-knight.png",
+            "imageURL": "/img/hollow-knight-silksong.png",
             "event": "Hollow Knight Silksong",
             "console": "Switch 2",
             "who": "Copilot",
