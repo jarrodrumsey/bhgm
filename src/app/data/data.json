@@ -28,7 +28,7 @@
     "schedule": [
         {
             "duration": 1.5,
-            "imageURL": "/img/spicy-mario-kart.png",
+            "imageURL": "/img/mario-kart-world.png",
             "event": "Mario Kart World",
             "console": "Switch 2",
             "who": "Everyone",
