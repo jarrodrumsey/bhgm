@@ -10,18 +10,18 @@
             "imageURL": "/img/placeholder.png"
         },
         {
+            "title": "Campfire",
+            "amount": 2000,
+            "imageURL": "/img/placeholder.png"
+        },
+        {
+            "title": "School Exam Competition",
+            "amount": 5000,
+            "imageURL": "/img/placeholder.png"
+        },
+        {
             "title": "Ice Bucket Challenge",
-            "amount": 2500,
-            "imageURL": "/img/placeholder.png"
-        },
-        {
-            "title": "100 Hot Dogs",
-            "amount": 4753,
-            "imageURL": "/img/placeholder.png"
-        },
-        {
-            "title": "Mystery 8k",
-            "amount": 8000,
+            "amount": 7800,
             "imageURL": "/img/placeholder.png"
         }
     ],
