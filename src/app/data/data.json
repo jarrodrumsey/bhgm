@@ -255,7 +255,7 @@
             "imageURL": "/img/everybody-1-2-switch.png",
             "event": "Everybody 1-2 Switch!",
             "console": "Switch",
-            "who": "bys",
+            "who": "Everyone",
             "time": "2026-05-03T19:00:00.000Z"
         },
         {
@@ -269,7 +269,7 @@
         {
             "duration": 1.75,
             "imageURL": "/img/wario-world.png",
-            "event": "WarioWorld",
+            "event": "Wario World",
             "console": "Gamecube",
             "who": "Squiggles",
             "time": "2026-05-03T22:00:00.000Z"
@@ -375,7 +375,7 @@
             "imageURL": "/img/rumble-finale.png",
             "event": "Royal Rumble + Finale",
             "console": "Xbox",
-            "who": "everybody wow",
+            "who": "Everyone",
             "time": "2026-05-04T20:30:00.000Z"
         }
     ]
