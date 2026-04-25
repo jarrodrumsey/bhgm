@@ -31,7 +31,7 @@
             "imageURL": "/img/mario-kart-world.png",
             "event": "Mario Kart World",
             "console": "Switch 2",
-            "who": "Everyone",
+            "who": "Copilot & All Hands",
             "time": "2026-05-01T21:30:00.000Z"
         },
         {
@@ -47,7 +47,7 @@
             "imageURL": "/img/wii-sports.png",
             "event": "Wii Sports Olympics",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Smackdown + All Hands",
             "time": "2026-05-02T01:00:00.000Z"
         },
         {
@@ -63,7 +63,7 @@
             "imageURL": "/img/little-big-planet.png",
             "event": "Little Big Planet Tournament",
             "console": "PS3",
-            "who": "Everyone",
+            "who": "Gambino & All Hands",
             "time": "2026-05-02T04:00:00.000Z"
         },
         {
@@ -143,7 +143,7 @@
             "imageURL": "/img/big-brain-academy-wii-degree.png",
             "event": "Big Brain Academy: Wii Degree",
             "console": "Wii",
-            "who": "Everyone",
+            "who": "Copilot + All Hands",
             "time": "2026-05-02T19:30:00.000Z"
         },
         {
@@ -151,7 +151,7 @@
             "imageURL": "/img/mario-maker-solos.png",
             "event": "Mario Maker Solos",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Squiggles & All Hands",
             "time": "2026-05-02T20:15:00.000Z"
         },
         {
@@ -167,7 +167,7 @@
             "imageURL": "/img/pro-am-mario-tennis-competition.png",
             "event": "Mario Tennis ProAm Competition",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Mikpick + All Hands",
             "time": "2026-05-02T23:45:00.000Z"
         },
         {
@@ -183,7 +183,7 @@
             "imageURL": "/img/ultimate-chicken-horse-game.png",
             "event": "Ultimate Chicken Horse",
             "console": "Switch 2",
-            "who": "Everyone",
+            "who": "Copilot + All Hands",
             "time": "2026-05-03T01:30:00.000Z"
         },
         {
@@ -207,7 +207,7 @@
             "imageURL": "/img/switch-sports.png",
             "event": "Switch Sports",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Windsock + All Hands",
             "time": "2026-05-03T07:00:00.000Z"
         },
         {
@@ -228,8 +228,8 @@
         },
         {
             "duration": 2.0,
-            "imageURL": "/img/minecraft.png",
-            "event": "Minecraft (Speedrun)",
+            "imageURL": "/img/darwins-paradox.png",
+            "event": "Darwin's Paradox",
             "console": "PS5",
             "who": "Lettuce",
             "time": "2026-05-03T12:15:00.000Z"
@@ -239,7 +239,7 @@
             "imageURL": "/img/rocket-league.png",
             "event": "Rocket League",
             "console": "PS4",
-            "who": "Pokey + Volunteers",
+            "who": "Pokey +  Volunteers",
             "time": "2026-05-03T14:15:00.000Z"
         },
         {
@@ -255,7 +255,7 @@
             "imageURL": "/img/everybody-1-2-switch.png",
             "event": "Everybody 1-2 Switch!",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "bys",
             "time": "2026-05-03T19:00:00.000Z"
         },
         {
@@ -263,13 +263,13 @@
             "imageURL": "/img/super-smash-bros-ultimate.png",
             "event": "Arctic Ace ESports",
             "console": "TBA",
-            "who": "Everyone",
+            "who": "All Hands",
             "time": "2026-05-03T20:00:00.000Z"
         },
         {
             "duration": 1.75,
             "imageURL": "/img/wario-world.png",
-            "event": "Wario World",
+            "event": "WarioWorld",
             "console": "Gamecube",
             "who": "Squiggles",
             "time": "2026-05-03T22:00:00.000Z"
@@ -279,7 +279,7 @@
             "imageURL": "/img/blood-on-the-clocktower.png",
             "event": "Blood on the Clocktower",
             "console": "PC",
-            "who": "Everyone",
+            "who": "Mik Pickle & All Hands",
             "time": "2026-05-03T23:45:00.000Z"
         },
         {
@@ -295,7 +295,7 @@
             "imageURL": "/img/dog-gone-golfing.png",
             "event": "Dog Gone Golfing",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Windsock + All Hands",
             "time": "2026-05-04T05:15:00.000Z"
         },
         {
@@ -303,7 +303,7 @@
             "imageURL": "/img/garbage-games-ii.png",
             "event": "Garbage Games",
             "console": "?",
-            "who": "Everyone",
+            "who": "Squiggles & All Hands",
             "time": "2026-05-04T06:00:00.000Z"
         },
         {
@@ -359,7 +359,7 @@
             "imageURL": "/img/ware.png",
             "event": "WarioWare Smooth Moves",
             "console": "Wii",
-            "who": "Everyone",
+            "who": "Squiggles & All Hands",
             "time": "2026-05-04T16:00:00.000Z"
         },
         {
@@ -367,7 +367,7 @@
             "imageURL": "/img/29-gameolympics.png",
             "event": "Gaming Olympics II",
             "console": "Switch",
-            "who": "Everyone",
+            "who": "Windsock + All Hands",
             "time": "2026-05-04T17:30:00.000Z"
         },
         {
@@ -375,7 +375,7 @@
             "imageURL": "/img/rumble-finale.png",
             "event": "Royal Rumble + Finale",
             "console": "Xbox",
-            "who": "Everyone",
+            "who": "everybody wow",
             "time": "2026-05-04T20:30:00.000Z"
         }
     ]
