@@ -228,8 +228,8 @@
         },
         {
             "duration": 2.0,
-            "imageURL": "/img/minecraft.png",
-            "event": "Minecraft (Speedrun)",
+            "imageURL": "/img/darwins-paradox.png",
+            "event": "Darwin's Paradox",
             "console": "PS5",
             "who": "Lettuce",
             "time": "2026-05-03T12:15:00.000Z"
@@ -239,7 +239,7 @@
             "imageURL": "/img/rocket-league.png",
             "event": "Rocket League",
             "console": "PS4",
-            "who": "Pokey + Volunteers",
+            "who": "Pokey +  Volunteers",
             "time": "2026-05-03T14:15:00.000Z"
         },
         {
